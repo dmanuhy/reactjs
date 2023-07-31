@@ -1,0 +1,177 @@
+.slick-prev {
+    left: -10px !important;
+    z-index: 1 !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background-color: #d7d7d7 !important;
+    }
+}
+
+.slick-next {
+    right: -10px !important;
+    z-index: 1 !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7 !important;
+
+    &:hover {
+        background-color: #d7d7d7 !important;
+    }
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: FontAwesome !important;
+    color: darkblue !important;
+}
+
+.section-general {
+    &.section-specialty,
+    &.section-outstanding-doctor {
+        background-color: #f5f5f5;
+    }
+    &.section-medical-facility,
+    &.section-hand-book {
+        background-color: #fff;
+    }
+    // &.section-about {
+    //     background-color: #f5f5f5;
+    // }
+    .section-body {
+        .body-content {
+            .bg-image {
+                height: 160px;
+
+                width: 94%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+                margin: 0 10px;
+
+                &.img-specialty {
+                    background-image: url("../../assets/images/popular-specialty/co-xuong-khop.jpg");
+                }
+                &.img-medical-facility {
+                    background-image: url("../../assets/images/medical-facility/mediteclogo.jpeg");
+                }
+                &.img-outstanding-doctor {
+                    background-image: url("../../assets/images/outstanding-doctor/af-ha-noi.jpg");
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+                &.img-hand-book {
+                    background-image: url("../../assets/images/hand-book/benh-gout.png");
+                }
+            }
+            span {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.section-general {
+    height: 330px;
+
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-bottom: 40px;
+            padding-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .header-title {
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .header-btn {
+                padding: 10px;
+                outline: none;
+                border: none;
+                display: block;
+                background-color: #ebebeb;
+                color: black;
+                text-transform: uppercase;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #fff;
+                    background: #f7d800;
+                }
+            }
+        }
+    }
+}
+
+.section-outstanding-doctor {
+    .customize-border {
+        padding: 5px;
+        .body-content {
+            border: 1px solid;
+            padding: 20px;
+            .bg-outer {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.section-about {
+    height: 550px;
+    padding: 0 200px;
+    background-color: #f5f5f5;
+    .about-header {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 40px 0 25px 0;
+    }
+    .about-content {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        .content-left {
+            width: 60%;
+        }
+        .content-right {
+            width: 40%;
+            p {
+                text-align: justify;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.home-footer {
+    padding: 20px 80px 20px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .media-page {
+        i {
+            font-size: 50px;
+            padding: 0 10px;
+        }
+        .fa-youtube:before {
+            color: #ff0000;
+        }
+        .fa-facebook-square:before {
+            color: #3b5998;
+        }
+    }
+}

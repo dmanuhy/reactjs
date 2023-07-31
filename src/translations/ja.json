@@ -1,0 +1,56 @@
+{
+    "home-header": {
+        "specialty": "専門医療",
+        "search-doctor-by-specialty": "専門分野から医師を探す",
+        "medical-facility": "医療施設",
+        "choose-hospital-clinic": "病院・クリニックを選ぶ",
+        "doctor": "医師",
+        "choose-good-doctor": "良い医者を選びましょう",
+        "checkup-package": "健康診断パック",
+        "general-health-checkup": "一般健康診断",
+        "support": "サポート",
+        "language": "言語",
+        "welcome": "良い一日を - "
+    },
+    "home-banner": {
+        "banner-title": "医療財団",
+        "banner-suptitle": "総合的なヘルスケア",
+        "": "Tìm chuyên khoa khám bệnh...",
+        "specialty-checkup": "特定健康診断",
+        "online-checkup": "オンライン健康診断",
+        "general-checkup": "一般健康診断",
+        "medical-test": "医学的検査",
+        "mental-health": "メンタルヘルスケア",
+        "dental-checkup": "歯科検診"
+    },
+    "menu": {
+        "admin": {
+            "user": "ユーザーシステム",
+            "manage-doctor": "医師の管理",
+            "manage-admin": "管理者の管理",
+            "crud-user": "ユーザーの管理",
+            "crud-redux": "Reduxで管理する",
+            "clinic": "クリニック",
+            "manage-clinic": "クリニックの経営",
+            "specialty": "専門",
+            "manage-specialty": "男の専門",
+            "handbook": "ハンドブック",
+            "manage-handbook": "ハンドブックの管理"
+        }
+    },
+    "manager-user": {
+        "add-new-user": "新しいアカウントを作成する ",
+        "email": "Eメール",
+        "password": "パスワード",
+        "first-name": "名",
+        "last-name": "苗字",
+        "phone": "電話番号",
+        "address": "住所",
+        "position": "職務上の地位",
+        "role": "役割",
+        "gender": "性別",
+        "image": "アバター",
+        "sign-up": "サインアップ",
+        "save-change": "変更の保存"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "home-header": {
+        "specialty": "Medical specialty",
+        "search-doctor-by-specialty": "Find a doctor by specialty",
+        "medical-facility": "Medical facility",
+        "choose-hospital-clinic": "Choose hospital - clinic",
+        "doctor": "Doctor",
+        "choose-good-doctor": "Choose a good doctor",
+        "checkup-package": "Checkup package",
+        "general-health-checkup": "General health checkup",
+        "support": "Support",
+        "language": "Language",
+        "welcome": "Welcome - "
+    },
+    "home-banner": {
+        "banner-title": "MEDICAL FOUNDATION",
+        "banner-suptitle": "COMPREHENSIVE HEALTH CARE",
+        "": "Tìm chuyên khoa khám bệnh...",
+        "specialty-checkup": "Specialty Health Checkup",
+        "online-checkup": "Online Health Checkup",
+        "general-checkup": "General Medical Examination",
+        "medical-test": "Medical Examination",
+        "mental-health": "Mental Health Care",
+        "dental-checkup": "Dental Checkup"
+    },
+    "menu": {
+        "admin": {
+            "user": "Users System",
+            "manage-doctor": "Manage doctors",
+            "manage-admin": "Manage ADMINs",
+            "crud-user": "CRUD Users",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinics",
+            "manage-clinic": "Manage clinics",
+            "specialty": "Specialties",
+            "manage-specialty": "Manage specialties",
+            "handbook": "Handbooks",
+            "manage-handbook": "Manage handbooks"
+        }
+    },
+    "manager-user": {
+        "add-new-user": "Add a new user",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "phone": "Phone Number",
+        "address": "Address",
+        "position": "Position",
+        "role": "Role",
+        "gender": "Gender",
+        "image": "Image",
+        "sign-up": "Sign Up",
+        "save-change": "Save Changes"
+    }
+}
