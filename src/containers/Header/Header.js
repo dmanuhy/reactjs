@@ -35,13 +35,13 @@ class Header extends Component {
                     </div>
                     <div className='language-content'>
                         <div className={language === LANGUAGES.VI ? "language-icon active" : "language-icon"}>
-                            <img src={VietnamFlag} onClick={() => { this.changeLanguage(LANGUAGES.VI) }} />
+                            <img alt="Vietnamese" src={VietnamFlag} onClick={() => { this.changeLanguage(LANGUAGES.VI) }} />
                         </div>
                         <div className={language === LANGUAGES.EN ? "language-icon active" : "language-icon"}>
-                            <img src={UnitedStateFlag} onClick={() => { this.changeLanguage(LANGUAGES.EN) }} />
+                            <img alt="English" src={UnitedStateFlag} onClick={() => { this.changeLanguage(LANGUAGES.EN) }} />
                         </div>
                         <div className={language === LANGUAGES.JA ? "language-icon active" : "language-icon"}>
-                            <img src={JapanFlag} onClick={() => { this.changeLanguage(LANGUAGES.JA) }} />
+                            <img alt="Japanese" src={JapanFlag} onClick={() => { this.changeLanguage(LANGUAGES.JA) }} />
                         </div>
                     </div>
                     {/* nút logout */}

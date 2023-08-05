@@ -13,10 +13,10 @@ class HomeFooter extends Component {
                 <div className='home-footer'>
                     <p> &copy; 2023 Booking Care</p>
                     <div className='media-page'>
-                        <a target='_blank' href='https://www.facebook.com/bookingcare'>
+                        <a target='_blank' rel='noreferrer' href='https://www.facebook.com/bookingcare'>
                             <i className="fab fa-facebook-square"></i>
                         </a>
-                        <a target='_blank' href='https://www.youtube.com/channel/UC9l2RhMEPCIgDyGCH8ijtPQ'>
+                        <a target='_blank' rel='noreferrer' href='https://www.youtube.com/channel/UC9l2RhMEPCIgDyGCH8ijtPQ'>
                             <i className="fab fa-youtube"></i>
                         </a>
                     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { LANGUAGES, MANAGE_USER } from '../../../utils/constant';
+import { LANGUAGES, MANAGE_USER, CommonUtils } from '../../../utils';
 import * as actions from "../../../store/actions";
 import './UserRedux.scss';
 import LightBox from 'react-image-lightbox';
@@ -64,9 +64,6 @@ class UserRedux extends Component {
             })
         }
         if (prevProps.usersRedux !== this.props.usersRedux) {
-            // let gendersRedux = this.props.gendersRedux;
-            // let positionsRedux = this.props.positionsRedux;
-            // let rolesRedux = this.props.rolesRedux;
             this.setState({
                 email: '',
                 password: '',
@@ -74,10 +71,8 @@ class UserRedux extends Component {
                 lastName: '',
                 phoneNumber: '',
                 address: '',
-                gender: '',
-                positionID: '',
-                roleID: '',
                 image: '',
+                previewImageUrl: '',
                 action: MANAGE_USER.CREATE
             })
         }
@@ -96,14 +91,16 @@ class UserRedux extends Component {
         }
     }
 
-    handleOnChangeImage = (event) => {
+    handleOnChangeImage = async (event) => {
         let data = event.target.files;
         let selectedFile = data[0];
         if (selectedFile) {
+            let base64 = await CommonUtils.getBase64(selectedFile);
+            console.log(base64);
             let objectUrl = URL.createObjectURL(selectedFile);
             this.setState({
                 previewImageUrl: objectUrl,
-                image: selectedFile
+                image: base64
             })
         }
     }
@@ -132,6 +129,7 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 roleID: this.state.roleID,
                 positionID: this.state.positionID,
+                image: this.state.image
             });
             this.props.fetchAllUserRedux();
         } else {
@@ -148,7 +146,7 @@ class UserRedux extends Component {
                     gender: this.state.gender,
                     roleID: this.state.roleID,
                     positionID: this.state.positionID,
-                    //image: this.state.image
+                    image: this.state.image
                 });
             }
         }
@@ -173,6 +171,10 @@ class UserRedux extends Component {
         })
     }
     handleEditUserParent = (user) => {
+        let imageBase64 = '';
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary');
+        }
         this.setState({
             email: user.email,
             password: 'HARDCODE',
@@ -184,17 +186,17 @@ class UserRedux extends Component {
             positionID: user.positionID,
             roleID: user.roleID,
             image: '',
+            previewImageUrl: imageBase64,
             action: MANAGE_USER.UPDATE,
             editUserID: user.id,
         })
     }
 
-
     render() {
         let { genders, positions, roles } = this.state;
         let language = this.props.language;
         let isLoadingGenders = this.props.isLoadingGenders;
-        let { email, password, firstName, lastName, phoneNumber, address, gender, positionID, roleID, image } = this.state;
+        let { email, password, firstName, lastName, phoneNumber, address, gender, positionID, roleID } = this.state;
         return (
             <>
                 <div className='user-redux-container'>
@@ -285,7 +287,7 @@ class UserRedux extends Component {
                                 </div>
                                 <div className="col-md-4">
                                     <label className="form-label">
-                                        <FormattedMessage id="manager-user.positionID" />
+                                        <FormattedMessage id="manager-user.position" />
                                     </label>
                                     <select className="form-select" value={positionID}
                                         onChange={(event) => this.onChangeInput(event, 'positionID')}
@@ -303,7 +305,7 @@ class UserRedux extends Component {
                                 </div>
                                 <div className="col-md-4">
                                     <label className="form-label">
-                                        <FormattedMessage id="manager-user.roleID" />
+                                        <FormattedMessage id="manager-user.role" />
                                     </label>
                                     <select className="form-select" value={roleID}
                                         onChange={(event) => this.onChangeInput(event, 'roleID')}

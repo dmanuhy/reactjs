@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './HomeBanner.scss'
 import { FormattedMessage } from 'react-intl';
@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 class HomeBanner extends Component {
 
     render() {
-        let language = this.props.language;
+        //let language = this.props.language;
         return (
             <>
                 <div className='home-banner'>

@@ -16,7 +16,7 @@ import Login from './Authentication/Login';
 // import Header from './Header/Header';
 import System from '../routes/System';
 
-import { CustomToastCloseButton } from '../components/CustomToast';
+//import { CustomToastCloseButton } from '../components/CustomToast';
 //import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 

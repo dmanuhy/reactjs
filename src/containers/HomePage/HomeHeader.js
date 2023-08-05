@@ -20,7 +20,6 @@ class HomeHeader extends Component {
 
     render() {
         let language = this.props.language;
-        console.log('check user info: ', this.props.userInfo)
         return (
             <>
                 <div className='home-header-container'>
@@ -55,57 +54,19 @@ class HomeHeader extends Component {
                             <div className='language-content'>
                                 <span><FormattedMessage id="home-header.language" />:</span>
                                 <div className={language === LANGUAGES.VI ? "language-icon active" : "language-icon"}>
-                                    <img src={VietnamFlag} onClick={() => { this.changeLanguage(LANGUAGES.VI) }} />
+                                    <img alt="Vietnamese" src={VietnamFlag} onClick={() => { this.changeLanguage(LANGUAGES.VI) }} />
                                 </div>
                                 <div className={language === LANGUAGES.EN ? "language-icon active" : "language-icon"}>
-                                    <img src={UnitedStateFlag} onClick={() => { this.changeLanguage(LANGUAGES.EN) }} />
+                                    <img alt="English" src={UnitedStateFlag} onClick={() => { this.changeLanguage(LANGUAGES.EN) }} />
                                 </div>
                                 <div className={language === LANGUAGES.JA ? "language-icon active" : "language-icon"}>
-                                    <img src={JapanFlag} onClick={() => { this.changeLanguage(LANGUAGES.JA) }} />
+                                    <img alt="Japanese" src={JapanFlag} onClick={() => { this.changeLanguage(LANGUAGES.JA) }} />
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                {/* <div className='home-banner'>
-                    <div className='banner-top-content'>
-                        <div className='banner-title'><FormattedMessage id="home-banner.banner-title" /></div>
-                        <div className='banner-suptitle'><b><FormattedMessage id="home-banner.banner-suptitle" /></b></div>
-                        <div className='banner-search'>
-                            <i className="fas fa-search"></i>
-                            <input type='text' placeholder='Tìm chuyên khoa khám bệnh...' />
-                        </div>
-                    </div>
-                    <div className='banner-bot-content'>
-                        <div className='banner-option'>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="far fa-hospital"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.specialty-checkup" /></div>
-                            </div>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="fas fa-mobile-alt"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.online-checkup" /></div>
-                            </div>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="fas fa-notes-medical"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.general-checkup" /></div>
-                            </div>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="fas fa-syringe"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.medical-test" /></div>
-                            </div>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="fas fa-user-shield"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.mental-health" /></div>
-                            </div>
-                            <div className='option-content'>
-                                <div className='option-icon'><i className="fas fa-briefcase-medical"></i></div>
-                                <div className='option-text'><FormattedMessage id="home-banner.dental-checkup" /></div>
-                            </div>
-                        </div>
-                    </div>
-                </div > */}
             </>
         );
     }

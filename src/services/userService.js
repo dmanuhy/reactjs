@@ -20,10 +20,15 @@ const updateUserService = (userData) => {
     return axios.put('/api/edit-user', userData);
 }
 
+const getTopDoctorService = (limitInput) => {
+    return axios.get(`/api/get-top-doctor?limitInput=${limitInput}`);
+}
+
 export {
     handleLoginService,
     getAllUserService,
     createUserService,
     deleteUserService,
-    updateUserService
+    updateUserService,
+    getTopDoctorService
 }  
