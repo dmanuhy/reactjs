@@ -10,6 +10,12 @@ import IntlProviderWrapper from "./hoc/IntlProviderWrapper";
 import { Provider } from 'react-redux';
 import reduxStore, { persistor } from './redux';
 
+//font awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth);
+
 const renderApp = () => {
     ReactDOM.render(
         <Provider store={reduxStore}>

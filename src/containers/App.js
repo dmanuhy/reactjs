@@ -10,14 +10,10 @@ import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authenticati
 
 import { path } from '../utils'
 
+import System from '../routes/System'
 import Home from '../routes/Home';
-//import Login from '../routes/Login';
 import Login from './Authentication/Login';
-// import Header from './Header/Header';
-import System from '../routes/System';
 
-//import { CustomToastCloseButton } from '../components/CustomToast';
-//import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 
 class App extends Component {
@@ -44,9 +40,6 @@ class App extends Component {
             <Fragment>
                 <Router history={history}>  {/*history: save data when refresh page*/}
                     <div className="main-container">
-                        {/* <ConfirmModal /> */}
-
-
                         <div className="content-container">
                             <CustomScrollbars style={{ height: "100vh", width: "100%" }}>
                                 <Switch>
@@ -57,14 +50,6 @@ class App extends Component {
                                 </Switch>
                             </CustomScrollbars>
                         </div>
-
-                        {/* <ToastContainer
-                            className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
-                            autoClose={false} hideProgressBar={true} pauseOnHover={false}
-                            pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
-                            closeButton={<CustomToastCloseButton />}
-                        /> */}
-
                         <ToastContainer
                             position="top-center"
                             autoClose={5000}
