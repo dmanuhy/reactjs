@@ -228,12 +228,11 @@ class UserRedux extends Component {
                                         onChange={(event) => this.onChangeInput(event, 'lastName')}
                                     />
                                 </div>
-
                                 <div className="col-md-6">
                                     <label className="form-label">
                                         <FormattedMessage id="manager-user.email" />
                                     </label>
-                                    <input type="text" className="form-control"
+                                    <input type="email" className="form-control"
                                         value={email}
                                         onChange={(event) => this.onChangeInput(event, 'email')}
                                         disabled={this.state.action === MANAGE_USER.UPDATE ? true : false}
@@ -323,20 +322,20 @@ class UserRedux extends Component {
                                 </div>
                                 <div className="col-md-6">
                                     <label className="form-label">
-                                        <FormattedMessage id="manager-user.image" />
+                                        <FormattedMessage id="manager-user.avatar" />
                                     </label>
                                     <div className='preview-image-container'>
+                                        <input id='previewImage' type='file' hidden
+                                            onChange={(event) => this.handleOnChangeImage(event)}
+                                        />
+                                        <label className='upload-image' htmlFor='previewImage'>
+                                            Tai Anh <i className="fas fa-upload"></i>
+                                        </label>
                                         <div className='preview-image'
                                             style={{ backgroundImage: `url(${this.state.previewImageUrl})` }}
                                             onClick={() => this.openPreviewImage()}
                                         >
                                         </div>
-                                        <input id='previewImage' type='file' hidden
-                                            onChange={(event) => this.handleOnChangeImage(event)}
-                                        />
-                                        <label className='upload-image mb-2' htmlFor='previewImage'>
-                                            Tai Anh <i className="fas fa-upload"></i>
-                                        </label>
                                     </div>
                                 </div>
                                 <div className="col-12 my-3">

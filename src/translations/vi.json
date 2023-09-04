@@ -49,8 +49,16 @@
         "position": "Chức danh",
         "role": "Vai trò",
         "gender": "Giới tính",
-        "image": "Ảnh đại diện",
+        "avatar": "Ảnh đại diện",
         "sign-up": "Đăng ký",
         "save-change": "Lưu thay đổi"
+    },
+    "home-section": {
+        "see-more": "XEM THÊM",
+        "outstanding-doctor": "Bác sĩ nổi bật",
+        "popular-specialties": "Chuyên khoa phổ biến",
+        "medical-facilities": "Cơ sở y tế nổi bật",
+        "handbook": "Cẩm nang",
+        "about": "Bookingcare"
     }
 }

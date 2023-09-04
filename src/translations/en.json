@@ -49,8 +49,16 @@
         "position": "Position",
         "role": "Role",
         "gender": "Gender",
-        "image": "Image",
+        "avatar": "Image",
         "sign-up": "Sign Up",
         "save-change": "Save Changes"
+    },
+    "home-section": {
+        "see-more": "SEE MORE",
+        "outstanding-doctor": "Outstanding Doctor",
+        "popular-specialties": "Popular Specialties",
+        "medical-facilities": "Medical Facilities",
+        "handbook": "Handbooks",
+        "about": "Bookingcare"
     }
 }

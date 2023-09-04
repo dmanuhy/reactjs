@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     .upload-image {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 40px;
-        width: 30%;
+        width: 20%;
         gap: 10px;
         padding: 5px;
         border-radius: 4px;
@@ -25,10 +25,11 @@
     }
     .preview-image {
         border: 1px solid #03ffff;
-        height: 100px;
+        height: 132px;
         width: 40%;
         background: center center no-repeat;
         background-size: contain;
         cursor: pointer;
     }
+
 }

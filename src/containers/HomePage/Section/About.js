@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 //import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //import hand-book from './Section/hand-book';
 class About extends Component {

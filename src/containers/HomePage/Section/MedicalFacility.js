@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import './MedicalFacility.scss';
 import Slider from 'react-slick';
+import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class MedicalFacility extends Component {
 
@@ -13,8 +15,11 @@ class MedicalFacility extends Component {
                 <div className='section-general section-medical-facility'>
                     <div className='section-container'>
                         <div className='section-header'>
-                            <span className='header-title'>Co so y te noi bat</span>
-                            <button className='header-btn'>XEM THEM</button>
+                            <div className='header-title'>
+                                <FontAwesomeIcon icon="fa-solid fa-hospital" /> &nbsp;
+                                <span><FormattedMessage id="home-section.medical-facilities"></FormattedMessage></span>
+                            </div>
+                            <button className='header-btn'><FormattedMessage id="home-section.see-more"></FormattedMessage></button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>

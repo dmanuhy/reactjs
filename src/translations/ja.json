@@ -49,8 +49,16 @@
         "position": "職務上の地位",
         "role": "役割",
         "gender": "性別",
-        "image": "アバター",
+        "avatar": "アバター",
         "sign-up": "サインアップ",
         "save-change": "変更の保存"
+    },
+    "home-section": {
+        "see-more": "もっと見る",
+        "outstanding-doctor": "優秀な医師",
+        "popular-specialties": "人気のある専門",
+        "medical-facilities": "人気のある医療施設",
+        "handbook": "ハンドブック",
+        "about": "Bookingcare"
     }
 }

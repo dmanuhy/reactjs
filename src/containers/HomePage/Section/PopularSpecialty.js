@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 //import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
-
+import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //import Specialty from './Section/Specialty';
 class PopularSpecialty extends Component {
@@ -14,8 +15,11 @@ class PopularSpecialty extends Component {
                 <div className='section-general section-specialty'>
                     <div className='section-container'>
                         <div className='section-header'>
-                            <span className='header-title'>Chuyen Khoa Pho Bien</span>
-                            <button className='header-btn'>XEM THEM</button>
+                            <div className='header-title'>
+                                <FontAwesomeIcon icon="fa-solid fa-suitcase-medical" /> &nbsp;
+                                <span><FormattedMessage id="home-section.popular-specialties"></FormattedMessage></span>
+                            </div>
+                            <button className='header-btn'><FormattedMessage id="home-section.see-more"></FormattedMessage></button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>

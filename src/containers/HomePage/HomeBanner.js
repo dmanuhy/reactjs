@@ -23,7 +23,7 @@ class HomeBanner extends Component {
                     <div className='banner-bot-content'>
                         <div className='banner-option'>
                             <div className='option-content'>
-                                <div className='option-icon'><FontAwesomeIcon icon="fa-solid fa-hospital" transform="left-1" /></div>
+                                <div className='option-icon'><FontAwesomeIcon icon="fa-solid fa-suitcase-medical" /></div>
                                 <div className='option-text'><FormattedMessage id="home-banner.specialty-checkup" /></div>
                             </div>
                             <div className='option-content'>
@@ -31,7 +31,7 @@ class HomeBanner extends Component {
                                 <div className='option-text'><FormattedMessage id="home-banner.online-checkup" /></div>
                             </div>
                             <div className='option-content'>
-                                <div className='option-icon'><FontAwesomeIcon icon="fa-solid fa-notes-medical" /></div>
+                                <div className='option-icon'><FontAwesomeIcon icon="fa-solid fa-list-check" /></div>
                                 <div className='option-text'><FormattedMessage id="home-banner.general-checkup" /></div>
                             </div>
                             <div className='option-content'>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import "./ManageUserTable.scss";
 import * as actions from "../../../store/actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ManageUserTable extends Component {
 
@@ -35,42 +36,44 @@ class ManageUserTable extends Component {
     render() {
         let userList = this.state.userList;
         return (
-            <table className='user-table mb-5' id='userTableList'>
-                <tbody>
-                    <tr>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Address</th>
-                        <th>Action</th>
-                    </tr>
-                    {userList && userList.length > 0 &&
-                        userList.map((item, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{item.email}</td>
-                                    <td>{item.firstName}</td>
-                                    <td>{item.lastName}</td>
-                                    <td>{item.address}</td>
-                                    <td >
-                                        <button className='btn-edit-user'
-                                            onClick={() => this.handleEditUser(item)}
-                                        >
-                                            <i className="fas fa-edit" ></i>
-                                        </button>
+            <>
+                <table className='user-table mb-5' id='userTableList'>
+                    <tbody>
+                        <tr className='row'>
+                            <th className='col-3'>Email</th>
+                            <th className='col-2'>First Name</th>
+                            <th className='col-2'>Last Name</th>
+                            <th className='col-3'>Address</th>
+                            <th className='col-2'>Action</th>
+                        </tr>
+                        {userList && userList.length > 0 &&
+                            userList.map((item, index) => {
+                                return (
+                                    <tr key={index} className='row'>
+                                        <td className='col-3'>{item.email}</td>
+                                        <td className='col-2'>{item.firstName}</td>
+                                        <td className='col-2'>{item.lastName}</td>
+                                        <td className='col-3'>{item.address}</td>
+                                        <td className='d-flex justify-content-between col-2 px-5'>
+                                            <button className='btn-edit-user'
+                                                onClick={() => this.handleEditUser(item)}
+                                            >
+                                                <FontAwesomeIcon icon="fa-solid fa-user-pen" />
+                                            </button>
 
-                                        <button className='btn-delete-user'
-                                            onClick={() => this.handleDeleteUser(item)}
-                                        >
-                                            <i className="fas fa-user-slash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-                </tbody >
-            </table >
+                                            <button className='btn-delete-user'
+                                                onClick={() => this.handleDeleteUser(item)}
+                                            >
+                                                <FontAwesomeIcon icon="fa-solid fa-user-xmark" />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody >
+                </table >
+            </>
         );
     }
 

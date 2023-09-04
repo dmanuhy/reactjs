@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
+import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class OutstandingDoctor extends Component {
     constructor(props) {
@@ -44,8 +46,11 @@ class OutstandingDoctor extends Component {
                 <div className='section-general section-outstanding-doctor'>
                     <div className='section-container'>
                         <div className='section-header'>
-                            <span className='header-title'>Bac si noi bat tuan qua</span>
-                            <button className='header-btn'>XEM THEM</button>
+                            <div className='header-title'>
+                                <FontAwesomeIcon icon="fa-solid fa-user-doctor" /> &nbsp;
+                                <span><FormattedMessage id="home-section.outstanding-doctor"></FormattedMessage></span>
+                            </div>
+                            <button className='header-btn'><FormattedMessage id="home-section.see-more"></FormattedMessage></button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
