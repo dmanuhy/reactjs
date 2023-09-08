@@ -81,7 +81,8 @@ class ManageUserTable extends Component {
 
 const mapStateToProps = state => {
     return {
-        usersRedux: state.admin.users
+        usersRedux: state.admin.users,
+        language: state.app.language,
     };
 };
 
