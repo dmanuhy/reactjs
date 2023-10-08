@@ -47,7 +47,7 @@ class ManageDoctor extends Component {
                     default: object.label = `${item.firstName} ${item.lastName}`; break;
                 }
                 object.value = item.id
-                result.push(object);
+                return result.push(object);
             })
         }
         return result;

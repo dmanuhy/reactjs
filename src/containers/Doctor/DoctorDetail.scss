@@ -1,0 +1,17 @@
+.doctor-detail-container{
+    height: 500px;
+    margin: 0 200px;
+
+    .doctor-introduction{
+        gap: 20px;
+        
+        .doctor-image{
+            background: center center none repeat;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+
+        }
+    }
+
+}

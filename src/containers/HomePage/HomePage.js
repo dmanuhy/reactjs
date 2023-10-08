@@ -29,18 +29,16 @@ class HomePage extends Component {
         };
         return (
             <>
-                <div>
-                    <HomeHeader />
-                    <HomeBanner />
+                <HomeHeader />
+                <HomeBanner />
 
-                    <PopularSpecialty settings={settings} />
-                    <MedicalFacility settings={settings} />
-                    <OutstandingDoctor settings={settings} />
-                    <HandBook settings={settings} />
-                    <About />
+                <PopularSpecialty settings={settings} />
+                <MedicalFacility settings={settings} />
+                <OutstandingDoctor settings={settings} />
+                <HandBook settings={settings} />
+                <About />
 
-                    <HomeFooter />
-                </div>
+                <HomeFooter />
             </>
         );
     }

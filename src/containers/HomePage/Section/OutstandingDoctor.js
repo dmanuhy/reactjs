@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import * as actions from '../../../store/actions';
@@ -38,6 +38,12 @@ class OutstandingDoctor extends Component {
         }
     }
 
+    handleViewDoctorDetail = (doctor) => {
+        console.log(doctor)
+        let linkToRedirect = `/doctor/${doctor.id}`
+        this.props.history.push(`${linkToRedirect}`)
+    }
+
     render() {
         let language = this.props.language;
         let doctorList = this.state.doctorList
@@ -60,7 +66,7 @@ class OutstandingDoctor extends Component {
                                         imageBase64 = new Buffer(item.image, 'base64').toString('binary');
                                     }
                                     return (
-                                        <div className='customize-border'>
+                                        <div className='customize-border' key={index} onClick={() => this.handleViewDoctorDetail(item)}>
                                             <div className='body-content'>
                                                 <div className='bg-outer'>
                                                     <div className='bg-image img-outstanding-doctor'
@@ -99,4 +105,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));

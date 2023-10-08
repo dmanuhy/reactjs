@@ -39,7 +39,7 @@ class HomeBanner extends Component {
                                 <div className='option-text'><FormattedMessage id="home-banner.medical-test" /></div>
                             </div>
                             <div className='option-content'>
-                                <div className='option-icon'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="35" height="35"><path fill="#49bce2" d="M19,9a7,7,0,0,0-7-7H10.2482A8.1643,8.1643,0,0,0,2.035,9.2424a7.9905,7.9905,0,0,0,3.9464,7.6708A2.0124,2.0124,0,0,1,7,18.6481L7,22h7.9553V19H17a2,2,0,0,0,2-2V14l2.2419-.5717a1,1,0,0,0,.4645-1.6772Zm-7,.5a.5.5,0,0,1-.5.5H10v1.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V10H6.5A.5.5,0,0,1,6,9.5v-1A.5.5,0,0,1,6.5,8H8V6.5A.5.5,0,0,1,8.5,6h1a.5.5,0,0,1,.5.5V8h1.5a.5.5,0,0,1,.5.5Z" class="color000 svgShape"></path></svg></div>
+                                <div className='option-icon'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="35" height="35"><path fill="#49bce2" d="M19,9a7,7,0,0,0-7-7H10.2482A8.1643,8.1643,0,0,0,2.035,9.2424a7.9905,7.9905,0,0,0,3.9464,7.6708A2.0124,2.0124,0,0,1,7,18.6481L7,22h7.9553V19H17a2,2,0,0,0,2-2V14l2.2419-.5717a1,1,0,0,0,.4645-1.6772Zm-7,.5a.5.5,0,0,1-.5.5H10v1.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V10H6.5A.5.5,0,0,1,6,9.5v-1A.5.5,0,0,1,6.5,8H8V6.5A.5.5,0,0,1,8.5,6h1a.5.5,0,0,1,.5.5V8h1.5a.5.5,0,0,1,.5.5Z" className="color000 svgShape"></path></svg></div>
                                 <div className='option-text'><FormattedMessage id="home-banner.mental-health" /></div>
                             </div>
                             <div className='option-content'>
