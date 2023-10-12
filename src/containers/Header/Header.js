@@ -2,21 +2,49 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import Navigator from '../../components/Navigator';
-import { adminMenu } from './menuApp';
+import { adminMenu, doctorMenu } from './menuApp';
 import './Header.scss';
 //import asset
 import VietnamFlag from '../../assets/language-icon/flag-for-flag-vietnam-svgrepo-com.svg';
 import UnitedStateFlag from '../../assets/language-icon/flag-us-svgrepo-com.svg';
 import JapanFlag from '../../assets/language-icon/japan-svgrepo-com.svg';
 //import redux
-import { LANGUAGES } from '../../utils';
+import { LANGUAGES, USER_ROLE } from '../../utils';
 import * as actions from "../../store/actions";
+import _ from 'lodash';
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            menuApp: []
+        }
+    }
 
     changeLanguage = (language) => {
         this.props.changeAppLanguageRedux(language)
         //fire redux event: actions
+    }
+
+    componentDidMount() {
+        let { userInfo } = this.props;
+        let menu = []
+        if (userInfo && !_.isEmpty(userInfo)) {
+            let roleID = userInfo.roleID;
+            if (roleID === USER_ROLE.ADMIN) {
+                menu = adminMenu;
+            } else {
+                if (roleID === USER_ROLE.DOCTOR) {
+                    menu = doctorMenu;
+                } else {
+                    console.log(roleID)
+                }
+            }
+        }
+        this.setState({
+            menuApp: menu
+        })
     }
 
     render() {
@@ -25,7 +53,7 @@ class Header extends Component {
             <div className="header-container">
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
-                    <Navigator menus={adminMenu} />
+                    <Navigator menus={this.state.menuApp} />
                 </div>
                 <div className='left-container'>
                     <div className='welcome'>

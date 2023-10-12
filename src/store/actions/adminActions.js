@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import { getAllCodeService } from '../../services/allCodeService';
 import {
     createUserService, getAllUserService, deleteUserService, updateUserService,
-    getTopDoctorService, getAllDoctorService, saveDoctorInfoService
+    getTopDoctorService, getAllDoctorService, saveDoctorInfoService, getDoctorDetailsService
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -164,10 +164,10 @@ export const deleteUserStart = (userID) => {
         }
     }
 }
-export const deleteUserSuccess = (data) => ({
+export const deleteUserSuccess = () => ({
     type: actionTypes.DELETE_USER_SUCCESS,
 })
-export const deleteUserFailed = (data) => ({
+export const deleteUserFailed = () => ({
     type: actionTypes.DELETE_USER_FAILED,
 })
 
@@ -261,7 +261,6 @@ export const saveDoctorInfoStart = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await saveDoctorInfoService(data);
-            console.log(res)
             if (res && res.errorCode === 0) {
                 toast.success("Saved doctor information!");
                 dispatch(saveDoctorInfoSuccess());
@@ -284,3 +283,33 @@ export const saveDoctorInfoSuccess = () => ({
 export const saveDoctorInfoFailed = () => ({
     type: actionTypes.SAVE_DOCTOR_INFO_FAILED,
 })
+
+export const fetchDoctorDetailsStart = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({ type: actionTypes.FETCH_DOCTOR_DETAILS_START });
+            let res = await getDoctorDetailsService(data);
+            if (res && res.errorCode === 0) {
+                dispatch(fetchDoctorDetailsSuccess(res.data));
+            }
+            else {
+                toast.error("Error occured in service!");
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTOR_FAILED
+                })
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+}
+export const fetchDoctorDetailsSuccess = (data) => ({
+    type: actionTypes.FETCH_DOCTOR_DETAILS_SUCCESS,
+    doctorDetails: data
+})
+export const fetchDoctorDetailsFailed = () => ({
+    type: actionTypes.FETCH_ALL_DOCTOR_FAILED,
+})
+
+

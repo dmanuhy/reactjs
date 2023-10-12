@@ -36,9 +36,12 @@
             "manage-specialty": "男の専門",
             "handbook": "ハンドブック",
             "manage-handbook": "ハンドブックの管理"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Schedule"
         }
     },
-    "manager-user": {
+    "manage-user": {
         "add-new-user": "新しいアカウントを作成する ",
         "email": "Eメール",
         "password": "パスワード",
@@ -51,7 +54,8 @@
         "gender": "性別",
         "avatar": "アバター",
         "sign-up": "サインアップ",
-        "save-change": "変更の保存"
+        "save-change": "変更の保存",
+        "create-new": "新規作成"
     },
     "home-section": {
         "see-more": "もっと見る",

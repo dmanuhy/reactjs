@@ -4,7 +4,8 @@ export const path = {
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    DOCTOR_DETAIL: '/doctor/:id'
+    DOCTOR_DETAIL: '/doctor/:id',
+    DOCTOR: '/doctor'
 };
 
 export const LANGUAGES = {
@@ -13,7 +14,7 @@ export const LANGUAGES = {
     JA: 'ja'
 };
 
-export const MANAGE_USER = {
+export const MANAGE_ACTION = {
     CREATE: "CREATE",
     READ: "READ",
     UPDATE: "UPDATE",
@@ -27,4 +28,10 @@ export const dateFormat = {
 export const YesNoObj = {
     YES: 'Y',
     NO: 'N'
+}
+
+export const USER_ROLE = {
+    ADMIN: "R1",
+    DOCTOR: "R2",
+    PATIENT: "R3",
 }

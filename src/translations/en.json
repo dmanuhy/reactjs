@@ -36,9 +36,12 @@
             "manage-specialty": "Manage specialties",
             "handbook": "Handbooks",
             "manage-handbook": "Manage handbooks"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Schedule"
         }
     },
-    "manager-user": {
+    "manage-user": {
         "add-new-user": "Add a new user",
         "email": "Email",
         "password": "Password",
@@ -51,7 +54,8 @@
         "gender": "Gender",
         "avatar": "Image",
         "sign-up": "Sign Up",
-        "save-change": "Save Changes"
+        "save-change": "Save Changes",
+        "create-new": "Create New"
     },
     "home-section": {
         "see-more": "SEE MORE",

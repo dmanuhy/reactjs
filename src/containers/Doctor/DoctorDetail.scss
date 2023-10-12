@@ -1,17 +1,27 @@
-.doctor-detail-container{
-    height: 500px;
-    margin: 0 200px;
+.doctor-detail-container {
+    border-top: 1px solid #49bce2;
 
-    .doctor-introduction{
-        gap: 20px;
-        
-        .doctor-image{
-            background: center center none repeat;
-            width: 200px;
-            height: 200px;
+    .doctor-introduction {
+        padding: 40px;
+        gap    : 20px;
+        margin : 0 200px;
+
+
+        .doctor-image {
+            background   : center center no-repeat;
+            width        : 200px;
+            height       : 200px;
             border-radius: 50%;
-
+            border       : 1px solid #49bce2;
         }
+
     }
 
+    .doctor-information {
+        padding         : 20px 200px;
+        background-color: aliceblue;
+        border-top      : 1px solid #49bce2;
+
+
+    }
 }

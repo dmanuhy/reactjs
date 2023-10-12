@@ -14,6 +14,7 @@ import System from '../routes/System'
 import Home from '../routes/Home';
 import Login from './Authentication/Login';
 import DoctorDetail from './Doctor/DoctorDetail';
+import Doctor from "../routes/Doctor"
 
 import CustomScrollbars from '../components/CustomScrollbars';
 
@@ -47,13 +48,14 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={path.DOCTOR} component={userIsAuthenticated(Doctor)}></Route>
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DOCTOR_DETAIL} component={DoctorDetail}></Route>
                                 </Switch>
                             </CustomScrollbars>
                         </div>
                         <ToastContainer
-                            position="top-center"
+                            position="top-right"
                             autoClose={5000}
                             hideProgressBar={false}
                             newestOnTop={false}
