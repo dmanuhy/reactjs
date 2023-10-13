@@ -36,9 +36,9 @@ class UserRedux extends Component {
     }
 
     async componentDidMount() {
-        this.props.getGenderStart();
-        this.props.getPositionStart();
-        this.props.getRoleStart();
+        this.props.fetchAllcodeStartRedux("GENDER")
+        this.props.fetchAllcodeStartRedux("POSITION")
+        this.props.fetchAllcodeStartRedux("ROLE")
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -96,7 +96,6 @@ class UserRedux extends Component {
         let selectedFile = data[0];
         if (selectedFile) {
             let base64 = await CommonUtils.getBase64(selectedFile);
-            console.log(base64);
             let objectUrl = URL.createObjectURL(selectedFile);
             this.setState({
                 previewImageUrl: objectUrl,
@@ -386,9 +385,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getGenderStart: () => dispatch(actions.fetchGenderStart()),
-        getPositionStart: () => dispatch(actions.fetchPositionStart()),
-        getRoleStart: () => dispatch(actions.fetchRoleStart()),
+        fetchAllcodeStartRedux: (type) => dispatch(actions.fetchAllcodeStart(type)),
         createUserStart: (data) => dispatch(actions.createUserStart(data)),
         fetchAllUserRedux: () => dispatch(actions.fetchAllUserStart()),
         updateUserRedux: (data) => dispatch(actions.updateUserStart(data)),

@@ -6,84 +6,32 @@ import {
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
-//get Gender
-export const fetchGenderStart = () => {
+
+export const fetchAllcodeStart = (type) => {
     return async (dispatch, getState) => {
         try {
-            dispatch({ type: actionTypes.FETCH_GENDER_START })
-            let res = await getAllCodeService("GENDER");
+            dispatch({ type: actionTypes.FETCH_ALLCODE_START })
+            let res = await getAllCodeService(type);
             if (res && res.errorCode === 0) {
-                dispatch(fetchGenderSuccess(res.data));
+                dispatch(fetchAllcodeSuccess(res.data, type));
             }
             else {
-                dispatch(fetchGenderFailed());
+                dispatch(fetchAllcodeFailed());
             }
         } catch (e) {
-            dispatch(fetchGenderFailed())
+            dispatch(fetchAllcodeFailed())
             console.log("fetch start: ", e)
         }
     }
 
 }
-export const fetchGenderSuccess = (genderData) => ({
-    type: actionTypes.FETCH_GENDER_SUCCESS,
-    data: genderData
+export const fetchAllcodeSuccess = (allcodeData, allcodeType) => ({
+    type: actionTypes.FETCH_ALLCODE_SUCCESS,
+    data: allcodeData,
+    dataType: allcodeType
 })
-export const fetchGenderFailed = () => ({
+export const fetchAllcodeFailed = () => ({
     type: actionTypes.FETCH_GENDER_FAILED
-})
-
-//get Position
-export const fetchPositionStart = () => {
-    return async (dispatch, getState) => {
-        try {
-            dispatch({ type: actionTypes.FETCH_POSITION_START })
-            let res = await getAllCodeService("POSITION");
-            if (res && res.errorCode === 0) {
-                dispatch(fetchPositionSuccess(res.data));
-            }
-            else {
-                dispatch(fetchPositionFailed());
-            }
-        } catch (e) {
-            dispatch(fetchPositionFailed())
-            console.log("fetch start: ", e)
-        }
-    }
-
-}
-export const fetchPositionSuccess = (positionData) => ({
-    type: actionTypes.FETCH_POSITION_SUCCESS,
-    data: positionData
-})
-export const fetchPositionFailed = () => ({
-    type: actionTypes.FETCH_POSITION_FAILED
-})
-
-//get Role
-export const fetchRoleStart = () => {
-    return async (dispatch, getState) => {
-        try {
-            dispatch({ type: actionTypes.FETCH_ROLE_START })
-            let res = await getAllCodeService("ROLE");
-            if (res && res.errorCode === 0) {
-                dispatch(fetchRoleSuccess(res.data));
-            }
-            else {
-                dispatch(fetchRoleFailed());
-            }
-        } catch (e) {
-            dispatch(fetchRoleFailed())
-            console.log("fetch start: ", e)
-        }
-    }
-}
-export const fetchRoleSuccess = (roleData) => ({
-    type: actionTypes.FETCH_ROLE_SUCCESS,
-    data: roleData
-})
-export const fetchRoleFailed = () => ({
-    type: actionTypes.FETCH_ROLE_FAILED
 })
 
 //--MANAGE USER--
@@ -94,7 +42,6 @@ export const createUserStart = (data) => {
         try {
             dispatch({ type: actionTypes.CREATE_USER_SUCCESS })
             let res = await createUserService(data);
-            console.log('check create user: ', res.errorCode, res.message);
             if (res && res.errorCode === 0) {
                 toast.success("New user created successfully !")
                 dispatch(createUserSuccess());

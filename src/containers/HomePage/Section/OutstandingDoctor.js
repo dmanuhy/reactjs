@@ -39,7 +39,6 @@ class OutstandingDoctor extends Component {
     }
 
     handleViewDoctorDetail = (doctor) => {
-        console.log(doctor)
         let linkToRedirect = `/doctor/${doctor.id}`
         this.props.history.push(`${linkToRedirect}`)
     }

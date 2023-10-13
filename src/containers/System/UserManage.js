@@ -68,7 +68,6 @@ class UserManage extends Component {
     }
 
     handleDeleteUser = async (user) => {
-        console.log('click delete', user);
         try {
             let response = await deleteUserService(user.id);
             if (response && response.errorCode === 0) {

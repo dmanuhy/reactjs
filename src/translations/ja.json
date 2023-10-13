@@ -64,5 +64,11 @@
         "medical-facilities": "人気のある医療施設",
         "handbook": "ハンドブック",
         "about": "Bookingcare"
+    },
+    "manage-schedule": {
+        "manage-doctor-schedule": "医師のスケジュールを管理する",
+        "save-schedule": "スケジュールの保存",
+        "choose-doctor": "医者を選ぶ",
+        "select-date": "日付を選択"
     }
 }

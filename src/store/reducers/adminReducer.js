@@ -5,6 +5,7 @@ const initialState = {
     genders: [],
     roles: [],
     positions: [],
+    times: [],
     users: [],
     doctorList: [],
     allDoctor: [],
@@ -13,6 +14,33 @@ const initialState = {
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.FETCH_ALLCODE_START:
+            state.isLoading = true;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALLCODE_SUCCESS:
+            switch (action.dataType) {
+                case "GENDER": state.genders = action.data;
+                    break;
+                case "POSITION": state.positions = action.data;
+                    break;
+                case "ROLE": state.roles = action.data;
+                    break;
+                case "TIME": state.times = action.data;
+                    break;
+                default: break;
+            }
+            state.isLoading = false;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALLCODE_FAILED:
+            state.isLoading = false;
+            state.genders = [];
+            return {
+                ...state,
+            }
         case actionTypes.FETCH_GENDER_START:
             state.isLoading = true;
             return {
@@ -122,7 +150,6 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_DOCTOR_DETAILS_SUCCESS:
             state.doctorDetails = action.doctorDetails;
-            console.log(action);
             state.isLoading = false;
             return {
                 ...state

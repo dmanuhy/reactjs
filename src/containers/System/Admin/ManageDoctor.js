@@ -36,6 +36,15 @@ class ManageDoctor extends Component {
         this.props.fetchAllDoctorRedux();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.allDoctorRedux !== this.props.allDoctorRedux || prevProps.language !== this.props.language) {
+            let dataSelect = this.buildDataInputSelect(this.props.allDoctorRedux);
+            this.setState({
+                allDoctor: dataSelect
+            })
+        }
+    }
+
     buildDataInputSelect = (inputData) => {
         let result = [];
         let { language } = this.props;
@@ -55,15 +64,6 @@ class ManageDoctor extends Component {
         return result;
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.allDoctorRedux !== this.props.allDoctorRedux || prevProps.language !== this.props.language) {
-            let dataSelect = this.buildDataInputSelect(this.props.allDoctorRedux);
-            this.setState({
-                allDoctor: dataSelect
-            })
-        }
-    }
-
     handleEditorChange = ({ html, text }) => {
         this.setState({
             contentMarkdown: text,
@@ -80,7 +80,6 @@ class ManageDoctor extends Component {
             doctorID: this.state.selectedDoctor.value,
             action: hasOldData === true ? MANAGE_ACTION.UPDATE : MANAGE_ACTION.CREATE
         })
-        console.log(this.state);
     }
     handleSelectDoctor = async (selectedDoctor) => {
         this.setState({
