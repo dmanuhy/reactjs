@@ -6,6 +6,7 @@ import './Login.scss';
 //import { FormattedMessage } from 'react-intl';
 import { Fragment } from 'react';
 import { handleLoginService } from '../../services/userService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Component {
     constructor(props) {
@@ -94,7 +95,7 @@ class Login extends Component {
                                         onKeyDown={(event) => this.handleOnKeyDown(event)}
                                     />
                                     <span onClick={() => this.handleShowHidePassword()}>
-                                        <i className={this.state.isShowPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                                        <FontAwesomeIcon className='show-hide-icon' icon={this.state.isShowPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></FontAwesomeIcon>
                                     </span>
                                 </div>
                             </div>
@@ -113,8 +114,8 @@ class Login extends Component {
                                 <span>Or login with:</span>
                             </div>
                             <div className='col-12 login-social'>
-                                <i className="fab fa-google login-google"></i>
-                                <i className="fab fa-facebook-f login-facebook"></i>
+                                <FontAwesomeIcon icon="fa-brands fa-google" className='login-google' />
+                                <FontAwesomeIcon icon="fa-brands fa-facebook-f" className='login-facebook' />
                             </div>
                         </div>
                     </div>

@@ -21,8 +21,15 @@ export const MANAGE_ACTION = {
     DELETE: "DELETE",
 };
 
+export const DATE_FORMAT = {
+    DAY_MONTH_YEAR: "DD/MM/YYYY",
+    MONTH_DAY_YEAR: "MM/DD/YYYY",
+    YEAR_MONTH_DAY: "YYYY/MM/DD",
+    YEAR_DAY_MONTH: "YYYY/DD/MM"
+}
+
 export const dateFormat = {
-    SEND_TO_SERVER: 'DD/MM/YYYY'
+    SEND_TO_SERVER: 'DD/MM/YYYY',
 };
 
 export const YesNoObj = {

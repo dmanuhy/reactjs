@@ -1,92 +1,96 @@
-.login-background{
-    height: 100vh;
+.login-background {
+    height    : 100vh;
     background: linear-gradient(135deg, rgb(34, 240, 240) 0%, rgb(219, 33, 188) 100%);
-    
-    .login-container{
-        width: 400px;
-        height: 500px;
-        margin: 0 auto;
-        background-color: white;
-        border-radius: 20px;
-        position: absolute;
-        margin: auto;
-        right: 0;
-        left: 0;
-        top: 0;
-        bottom: 0;
 
-        .login-content{
+    .login-container {
+        width           : 400px;
+        height          : 500px;
+        margin          : 0 auto;
+        background-color: white;
+        border-radius   : 20px;
+        position        : absolute;
+        margin          : auto;
+        right           : 0;
+        left            : 0;
+        top             : 0;
+        bottom          : 0;
+
+        .login-content {
             padding: 10px;
-            .login-text{
-                text-align: center;
+
+            .login-text {
+                text-align : center;
                 font-weight: 600;
-                font-size: 40px;
-                color: rgb(219, 33, 188);
+                font-size  : 40px;
+                color      : rgb(219, 33, 188);
                 padding-top: 5px;
             }
 
-            .login-input{
+            .login-input {
                 margin: 10px 0;
 
-                .custom-input-passwords{
+                .custom-input-passwords {
                     position: relative;
-                    i{
+
+                    .show-hide-icon {
                         position: absolute;
-                        right: 15px;
-                        top: 10px;
-                        cursor: pointer;
+                        right   : 15px;
+                        top     : 10px;
+                        cursor  : pointer;
                     }
                 }
             }
 
-            .btn-login{
-                width: 100%;
-                margin: 20px 0;
-                height: 40px;
-                border: none;
+            .btn-login {
+                width        : 100%;
+                margin       : 20px 0;
+                height       : 40px;
+                border       : none;
                 border-radius: 20px;
-                background: linear-gradient(135deg, rgb(34, 240, 240) 0%, rgb(219, 33, 188) 100%);
-                color: white;
-                font-size: 20px;
+                background   : linear-gradient(135deg, rgb(34, 240, 240) 0%, rgb(219, 33, 188) 100%);
+                color        : white;
+                font-size    : 20px;
             }
 
-            .forgot-password{
+            .forgot-password {
                 font-size: 12px;
             }
 
-            .login-social{
-                display: flex;
+            .login-social {
+                display        : flex;
                 justify-content: center;
-                margin-top: 20px;
+                margin-top     : 20px;
 
-                .login-google{
-                    font-size: 40px;
-                    color: white;
-                    background-color: rgb(219, 68, 55);
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 5px;
+                svg {
+                    padding: 10px;
                 }
 
-                .login-facebook{
-                    font-size: 40px;
-                    color: white;
+                .login-google {
+                    color           : white;
+                    background-color: rgb(219, 68, 55);
+                    width           : 40px;
+                    height          : 40px;
+                    border-radius   : 50%;
+                    display         : flex;
+                    align-items     : center;
+                    justify-content : center;
+                    margin          : 0 5px;
+                }
+
+                .login-facebook {
+                    color           : white;
                     background-color: rgb(59, 89, 152);
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 5px;
+                    width           : 40px;
+                    height          : 40px;
+                    border-radius   : 50%;
+                    display         : flex;
+                    align-items     : center;
+                    justify-content : center;
+                    margin          : 0 5px;
                 }
             }
         }
     }
 
-    
+
 }

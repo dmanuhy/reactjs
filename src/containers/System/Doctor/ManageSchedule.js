@@ -4,9 +4,12 @@ import "./ManageSchedule.scss"
 import { FormattedMessage } from 'react-intl';
 import Select from "react-select"
 import * as actions from "../../../store/actions";
-import { LANGUAGES, MANAGE_ACTION, } from '../../../utils';
+import { LANGUAGES, MANAGE_ACTION, DATE_FORMAT } from '../../../utils';
 import FlatPickr from "react-flatpickr"
 import "flatpickr/dist/themes/material_blue.css";
+import moment from 'moment/moment';
+import { toast } from 'react-toastify';
+
 class ManageSchedule extends Component {
 
     constructor(props) {
@@ -32,8 +35,15 @@ class ManageSchedule extends Component {
             })
         }
         if (prevProps.scheduleTimesRedux !== this.props.scheduleTimesRedux) {
+            let timesToSelect = this.props.scheduleTimesRedux;
+            if (timesToSelect && timesToSelect.length > 0) {
+                timesToSelect = timesToSelect.map(time => ({
+                    ...time,
+                    isSelected: false
+                }))
+            }
             this.setState({
-                scheduleTimes: this.props.scheduleTimesRedux
+                scheduleTimes: timesToSelect
             })
         }
     }
@@ -74,24 +84,6 @@ class ManageSchedule extends Component {
         this.setState({
             selectedDoctor: selectedDoctor
         })
-        await this.props.fetchDoctorDetailsRedux(selectedDoctor.value);
-        let { doctorDetailsRedux } = this.props;
-        if (doctorDetailsRedux && doctorDetailsRedux.Markdown) {
-            let markdown = doctorDetailsRedux.Markdown;
-            this.setState({
-                contentHTML: markdown.contentHTML,
-                contentMarkdown: markdown.contentMarkdown,
-                description: markdown.description,
-                hasOldData: true
-            })
-        } else {
-            this.setState({
-                contentHTML: '',
-                contentMarkdown: '',
-                description: '',
-                hasOldData: false
-            })
-        }
     };
 
     handleChangeDatePicker = (date) => {
@@ -100,8 +92,44 @@ class ManageSchedule extends Component {
         })
     }
 
+    handleSelectTime = (selectedTime) => {
+        let { scheduleTimes } = this.state;
+        if (scheduleTimes && scheduleTimes.length > 0) {
+            scheduleTimes = scheduleTimes.map(time => {
+                if (time.id === selectedTime.id) {
+                    time.isSelected = !time.isSelected;
+                }
+                return time;
+            })
+            this.setState({
+                scheduleTimes: [...scheduleTimes]
+            })
+        }
+    }
+    handleSaveSchedule = () => {
+        let { scheduleTimes, currentDate, selectedDoctor } = this.state;
+        let result = [];
+        if (!selectedDoctor) {
+            toast.error("Please choose a doctor!");
+        } else {
+            let selectedTimes = scheduleTimes.filter(time => time.isSelected === true)
+            if (selectedTimes && selectedTimes.length < 1) {
+                toast.error("Please select time(s)!")
+            } else {
+                let formattedDate = moment(currentDate).format(DATE_FORMAT.DAY_MONTH_YEAR);
+                selectedTimes.map(time => {
+                    let object = {};
+                    object.doctorID = selectedDoctor.value;
+                    object.date = formattedDate;
+                    object.time = time.key
+                    result.push(object);
+                    return result;
+                })
+            }
+        }
+        console.log(result)
+    }
     render() {
-        console.log(this.state)
         let { scheduleTimes } = this.state
         let language = this.props.language
         return (
@@ -129,19 +157,26 @@ class ManageSchedule extends Component {
                                     options={{ minDate: this.state.currentDate, dateFormat: "d-m-Y" }}
                                 />
                             </div>
-                            <div className='col-12 my-4 gap-4 d-flex flex-wrap justify-content-center pick-time'>
+                            <div className='col-12 my-5 gap-4 d-flex flex-wrap justify-content-center pick-time'>
                                 {
                                     scheduleTimes && scheduleTimes.length > 0 &&
                                     scheduleTimes.map((item, index) => {
                                         return (
-                                            <button className='btn btn-info text-white' key={index}>
+                                            <button
+                                                className={item.isSelected === true ? "btn btn-success" : "btn btn-white border border-success"}
+                                                key={index}
+                                                onClick={() => this.handleSelectTime(item)}
+                                            >
                                                 {item[this.getValueByLanguage(language)]}
                                             </button>
                                         )
                                     })
                                 }
                             </div>
-                            <button className='col-2 btn btn-primary'>
+                            <button
+                                className='col-2 btn btn-primary'
+                                onClick={() => this.handleSaveSchedule()}
+                            >
                                 <FormattedMessage id="manage-schedule.save-schedule"></FormattedMessage>
                             </button>
                         </div>

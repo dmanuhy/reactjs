@@ -12,6 +12,7 @@ import JapanFlag from '../../assets/language-icon/japan-svgrepo-com.svg';
 import { LANGUAGES, USER_ROLE } from '../../utils';
 import * as actions from "../../store/actions";
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends Component {
 
@@ -73,7 +74,7 @@ class Header extends Component {
                     </div>
                     {/* nút logout */}
                     <div className="btn btn-logout" onClick={processLogout} title='Logout'>
-                        <i className="fas fa-sign-out-alt"></i>
+                        <FontAwesomeIcon icon="fa-solid fa-right-from-bracket" />
                     </div>
                 </div>
             </div>

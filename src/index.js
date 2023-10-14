@@ -12,8 +12,9 @@ import reduxStore, { persistor } from './redux';
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor } from "@fortawesome/free-solid-svg-icons";
-library.add(faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor);
+import { faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle, faFacebookF } from "@fortawesome/free-brands-svg-icons";
+library.add(faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, faGoogle, faFacebookF);
 
 const renderApp = () => {
     ReactDOM.render(
