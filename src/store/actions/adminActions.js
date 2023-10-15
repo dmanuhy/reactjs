@@ -2,7 +2,8 @@ import actionTypes from './actionTypes';
 import { getAllCodeService } from '../../services/allCodeService';
 import {
     createUserService, getAllUserService, deleteUserService, updateUserService,
-    getTopDoctorService, getAllDoctorService, saveDoctorInfoService, getDoctorDetailsService
+    getTopDoctorService, getAllDoctorService, saveDoctorInfoService, getDoctorDetailsService,
+    createDoctorScheduleService
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -259,4 +260,20 @@ export const fetchDoctorDetailsFailed = () => ({
     type: actionTypes.FETCH_ALL_DOCTOR_FAILED,
 })
 
+export const createDoctorScheduleStart = (data) => {
+    return async () => {
+        try {
+            let res = await createDoctorScheduleService(data);
+            if (res && res.errorCode === 0) {
+                toast.success(res.message);
+            }
+            else {
+                toast.error(res.message || "Error from server");
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+}
 

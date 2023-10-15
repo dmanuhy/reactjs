@@ -90,6 +90,7 @@ class ManageSchedule extends Component {
         this.setState({
             currentDate: date,
         })
+        console.log(this.state.currentDate);
     }
 
     handleSelectTime = (selectedTime) => {
@@ -116,18 +117,22 @@ class ManageSchedule extends Component {
             if (selectedTimes && selectedTimes.length < 1) {
                 toast.error("Please select time(s)!")
             } else {
-                let formattedDate = moment(currentDate).format(DATE_FORMAT.DAY_MONTH_YEAR);
+                console.log(this.state.currentDate)
+                let formattedDate = new Date(currentDate).getTime();
+                console.log(formattedDate)
                 selectedTimes.map(time => {
                     let object = {};
                     object.doctorID = selectedDoctor.value;
                     object.date = formattedDate;
-                    object.time = time.key
+                    object.timeType = time.key
                     result.push(object);
                     return result;
                 })
+                this.props.createDoctorScheduleRedux({
+                    schedule: result
+                })
             }
         }
-        console.log(result)
     }
     render() {
         let { scheduleTimes } = this.state
@@ -203,7 +208,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchAllDoctorRedux: () => dispatch(actions.fetchAllDoctorStart()),
         fetchDoctorDetailsRedux: (data) => dispatch(actions.fetchDoctorDetailsStart(data)),
-        fetchAllcodeRedux: (type) => dispatch(actions.fetchAllcodeStart(type))
+        fetchAllcodeRedux: (type) => dispatch(actions.fetchAllcodeStart(type)),
+        createDoctorScheduleRedux: (data) => dispatch(actions.createDoctorScheduleStart(data))
     };
 };
 
