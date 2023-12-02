@@ -1,35 +1,37 @@
 .preview-image-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: start;
-    justify-content: start;
+    display        : flex;
+    flex-direction : row;
+    gap            : 10px;
+    align-items    : flex-start;
+    justify-content: flex-start;
+
     .upload-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
-        width: 20%;
-        gap: 10px;
-        padding: 5px;
-        border-radius: 4px;
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        height          : 40px;
+        width           : 20%;
+        gap             : 10px;
+        padding         : 5px;
+        border-radius   : 4px;
         background-color: #00ffff;
-        cursor: pointer;
-        color: #8d0f87;
+        cursor          : pointer;
+        color           : #8d0f87;
 
         &:hover {
-            opacity: 0.9;
+            opacity         : 0.9;
             background-color: #00ffff;
-            color: #f107e6;
+            color           : #f107e6;
         }
     }
+
     .preview-image {
-        border: 1px solid #03ffff;
-        height: 132px;
-        width: 40%;
-        background: center center no-repeat;
+        border         : 1px solid #03ffff;
+        height         : 132px;
+        width          : 40%;
+        background     : center center no-repeat;
         background-size: contain;
-        cursor: pointer;
+        cursor         : pointer;
     }
 
 }

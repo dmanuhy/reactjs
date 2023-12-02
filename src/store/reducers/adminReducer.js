@@ -9,7 +9,8 @@ const initialState = {
     users: [],
     doctorList: [],
     allDoctor: [],
-    doctorDetails: {}
+    doctorDetails: {},
+    doctorSchedulesByDate: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -156,6 +157,23 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_DOCTOR_DETAILS_FAILED:
             state.doctorDetails = {};
+            state.isLoading = false;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_START:
+            state.isLoading = true;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_SUCCESS:
+            state.doctorSchedulesByDate = action.doctorSchedules;
+            state.isLoading = false;
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_FAILED:
+            state.doctorSchedulesByDate = []
             state.isLoading = false;
             return {
                 ...state

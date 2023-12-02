@@ -4,7 +4,7 @@ export const path = {
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    DOCTOR_DETAIL: '/doctor/:id',
+    DOCTOR_DETAIL: '/doctor-detail/:id',
     DOCTOR: '/doctor'
 };
 

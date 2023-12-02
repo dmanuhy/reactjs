@@ -4,10 +4,9 @@ import "./ManageSchedule.scss"
 import { FormattedMessage } from 'react-intl';
 import Select from "react-select"
 import * as actions from "../../../store/actions";
-import { LANGUAGES, MANAGE_ACTION, DATE_FORMAT } from '../../../utils';
+import { LANGUAGES } from '../../../utils';
 import FlatPickr from "react-flatpickr"
 import "flatpickr/dist/themes/material_blue.css";
-import moment from 'moment/moment';
 import { toast } from 'react-toastify';
 
 class ManageSchedule extends Component {
@@ -88,7 +87,7 @@ class ManageSchedule extends Component {
 
     handleChangeDatePicker = (date) => {
         this.setState({
-            currentDate: date,
+            currentDate: date[0],
         })
         console.log(this.state.currentDate);
     }
@@ -117,14 +116,13 @@ class ManageSchedule extends Component {
             if (selectedTimes && selectedTimes.length < 1) {
                 toast.error("Please select time(s)!")
             } else {
-                console.log(this.state.currentDate)
                 let formattedDate = new Date(currentDate).getTime();
                 console.log(formattedDate)
                 selectedTimes.map(time => {
                     let object = {};
                     object.doctorID = selectedDoctor.value;
                     object.date = formattedDate;
-                    object.timeType = time.key
+                    object.timeType = time.key;
                     result.push(object);
                     return result;
                 })
@@ -159,7 +157,7 @@ class ManageSchedule extends Component {
                                     className='form-control'
                                     value={this.state.currentDate}
                                     onChange={this.handleChangeDatePicker}
-                                    options={{ minDate: this.state.currentDate, dateFormat: "d-m-Y" }}
+                                    options={{ minDate: "today", dateFormat: "d/m/Y" }}
                                 />
                             </div>
                             <div className='col-12 my-5 gap-4 d-flex flex-wrap justify-content-center pick-time'>

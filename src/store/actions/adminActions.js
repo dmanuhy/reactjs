@@ -3,7 +3,7 @@ import { getAllCodeService } from '../../services/allCodeService';
 import {
     createUserService, getAllUserService, deleteUserService, updateUserService,
     getTopDoctorService, getAllDoctorService, saveDoctorInfoService, getDoctorDetailsService,
-    createDoctorScheduleService
+    createDoctorScheduleService, getDoctorScheduleByDateService
 } from '../../services/userService';
 import { toast } from 'react-toastify';
 
@@ -277,3 +277,29 @@ export const createDoctorScheduleStart = (data) => {
     }
 }
 
+export const fetchDoctorScheduleByDateStart = (doctorID, date) => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch({ type: actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_START });
+            let res = await getDoctorScheduleByDateService(doctorID, date);
+            if (res && res.errorCode === 0) {
+                dispatch(fetchDoctorScheduleByDateSuccess(res.data));
+            }
+            else {
+                toast.error("Error occured in service!");
+                dispatch(fetchDoctorScheduleByDateFailed())
+            }
+        }
+        catch (e) {
+            dispatch(fetchDoctorScheduleByDateFailed())
+            console.log(e);
+        }
+    }
+}
+export const fetchDoctorScheduleByDateSuccess = (data) => ({
+    type: actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_SUCCESS,
+    doctorSchedules: data
+})
+export const fetchDoctorScheduleByDateFailed = () => ({
+    type: actionTypes.FETCH_DOCTOR_SCHEDULE_BY_DATE_FAILED,
+})

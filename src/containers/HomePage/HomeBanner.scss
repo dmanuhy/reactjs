@@ -1,93 +1,103 @@
 .home-banner {
-    background: url("../../assets/images/bookingcare-home-header-backgroud.jpg");
+    background         : url("../../assets/images/bookingcare-home-header-backgroud.jpg");
     //background: url("../../assets/images/autumn.png");
-    height: 620px;
-    background-repeat: no-repeat;
+    height             : 620px;
+    background-repeat  : no-repeat;
     background-position: top;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+    background-size    : cover;
+    display            : flex;
+    flex-direction     : column;
+    margin-bottom      : 15px;
 
     .banner-top-content {
         background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1));
-        height: 70%;
-        padding-top: 170px;
+        height          : 70%;
+        padding-top     : 170px;
+
         .banner-title {
-            text-align: center;
-            font-size: 33px;
-            color: white;
+            text-align : center;
+            font-size  : 33px;
+            color      : white;
             text-shadow: 6px 5px 5px #333;
         }
+
         .banner-suptitle {
-            text-align: center;
-            font-size: 33px;
+            text-align : center;
+            font-size  : 33px;
             text-shadow: 6px 5px 5px #333;
-            color: white;
+            color      : white;
         }
+
         .banner-search {
-            text-align: center;
-            width: fit-content;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            padding: 15px;
-            border-radius: 30px;
+            text-align      : center;
+            width           : fit-content;
+            display         : flex;
+            justify-content : center;
+            align-items     : center;
+            margin          : 0 auto;
+            padding         : 15px;
+            border-radius   : 30px;
             background-color: #f7d800;
-            margin-top: 20px;
+            margin-top      : 20px;
+
             i {
                 margin: 0 5px;
             }
+
             input {
-                height: 25px;
-                width: 400px;
+                height    : 25px;
+                width     : 400px;
                 background: transparent;
-                border: none;
-                outline: none;
-                font-size: 24px;
+                border    : none;
+                outline   : none;
+                font-size : 24px;
             }
-            svg{
+
+            svg {
                 font-size: 20px;
             }
         }
     }
 
     .banner-bot-content {
-        height: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: end;
+        height          : 30%;
+        display         : flex;
+        justify-content : center;
+        align-items     : flex-end;
         background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
-        padding-bottom: 20px;
+        padding-bottom  : 20px;
+
         .banner-option {
-            text-align: center;
-            display: flex;
-            grid-gap: 44px;
+            text-align     : center;
+            display        : flex;
+            grid-gap       : 44px;
             justify-content: center;
+
             .option-content {
                 width: 140px;
 
                 .option-icon {
-                    background: white;
-                    width: 50px;
-                    height: 50px;
-                    padding: 10px;
+                    background   : white;
+                    width        : 50px;
+                    height       : 50px;
+                    padding      : 10px;
                     border-radius: 50%;
-                    margin: 0 auto;
-                    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-                    cursor: pointer;
-                    svg{
+                    margin       : 0 auto;
+                    box-shadow   : 2px 4px 10px rgba(0, 0, 0, 0.5);
+                    cursor       : pointer;
+
+                    svg {
                         font-size: 28px;
-                        color: #49bce2;
+                        color    : #49bce2;
                     }
                 }
 
                 .option-text {
                     padding-top: 5px;
-                    font-size: 18px;
+                    font-size  : 18px;
                     font-weight: 500;
-                    cursor: pointer;
+                    cursor     : pointer;
+
                     &:hover {
                         color: #49bce2;
                     }
