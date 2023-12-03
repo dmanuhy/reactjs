@@ -70,5 +70,8 @@
         "save-schedule": "スケジュールの保存",
         "choose-doctor": "医者を選ぶ",
         "select-date": "日付を選択"
+    },
+    "doctor-detail": {
+        "doctor-schedule": "医師のスケジュール"
     }
 }

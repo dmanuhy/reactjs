@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import "./DoctorSchedule.scss"
 import * as actions from "../../store/actions"
 import { LANGUAGES } from '../../utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import "moment/locale/vi"
 import "moment/locale/ja"
@@ -66,18 +68,19 @@ class DoctorSchedule extends Component {
     }
 
     render() {
-        let { daysToChoose } = this.state
-
+        let { daysToChoose, doctorSchedules } = this.state
+        let { language } = this.props
         return (
             <>
                 <div className='schedule-container'>
-                    <div className='choose-date'>
-                        <select onChange={(event) => this.handleOnChangeDate(event)} className='form-control w-50'>
+                    <div className='choose-date d-flex align-items-center gap-2 mb-4'>
+                        <span className='fs-3' style={{ color: "#45c3d2" }}><FontAwesomeIcon icon="fa-solid fa-calendar-days" /></span>
+                        <select onChange={(event) => this.handleOnChangeDate(event)}>
                             {
                                 daysToChoose && daysToChoose.length > 0 &&
                                 daysToChoose.map((item, index) => {
                                     return (
-                                        <option value={item.value} key={index}>
+                                        <option className='fs-5' value={item.value} key={index}>
                                             {item.label}
                                         </option>
                                     )
@@ -86,7 +89,25 @@ class DoctorSchedule extends Component {
                         </select>
                     </div>
                     <div className='available-time'>
-
+                        <div className='text-calendar d-flex align-items-center gap-3'>
+                            <span className='fs-4' style={{ color: "#ffc10e" }}><FontAwesomeIcon icon="fa-solid fa-clock" /></span><span style={{ color: "#ffc10e" }} className='fs-5 text-uppercase'><FormattedMessage id="doctor-detail.doctor-schedule"></FormattedMessage></span>
+                        </div>
+                        <div className='times d-flex flex-wrap gap-2'>
+                            {
+                                doctorSchedules && doctorSchedules.length > 0 ?
+                                    doctorSchedules.map((item, index) => {
+                                        return (
+                                            <div className='no-wrap'>
+                                                <button key={index}><span className='no-wrap'>{item.timeData[this.getValueByLanguage(language)]}</span></button>
+                                            </div>
+                                        )
+                                    })
+                                    :
+                                    <div>
+                                        <span style={{ color: "#ffc10e" }}> Bác sĩ không có lịch khám trong hôm nay, vui lòng chọn ngày khác</span>
+                                    </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </>

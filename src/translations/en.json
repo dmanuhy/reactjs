@@ -70,5 +70,8 @@
         "save-schedule": "Save schedule",
         "choose-doctor": "Choose doctor",
         "select-date": "Select date"
+    },
+    "doctor-detail": {
+        "doctor-schedule": "Doctor's Schedule"
     }
 }

@@ -1,0 +1,35 @@
+.schedule-container {
+    height: 100%;
+
+    .choose-date {
+        select {
+            border       : none;
+            padding      : 5px;
+            color        : #45c3d2;
+            font-size    : 16px;
+            font-weight  : 600;
+            cursor       : pointer;
+            border       : 1px solid #45c3d2;
+            border-radius: 5px;
+        }
+    }
+
+    .available-time {
+        .text-calendar {}
+
+        .times {
+
+            button {
+                background-color: #fff04b;
+                padding         : 5px 10px;
+                border          : none;
+                min-width       : 166px;
+
+                &:hover {
+                    background-color: #45c3d2;
+                    color           : whitesmoke;
+                }
+            }
+        }
+    }
+}
