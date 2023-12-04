@@ -72,6 +72,7 @@
         "select-date": "日付を選択"
     },
     "doctor-detail": {
-        "doctor-schedule": "医師のスケジュール"
+        "doctor-schedule": "医師のスケジュール",
+        "no-schedule-message": "今日は医師の予約がありません。別の日を選択してください"
     }
 }

@@ -72,6 +72,7 @@
         "select-date": "Select date"
     },
     "doctor-detail": {
-        "doctor-schedule": "Doctor's Schedule"
+        "doctor-schedule": "Doctor's Schedule",
+        "no-schedule-message": "The doctor does not have an appointment today, please choose another day"
     }
 }

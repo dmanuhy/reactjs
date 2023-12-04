@@ -8,6 +8,7 @@ import { LANGUAGES } from '../../../utils';
 import FlatPickr from "react-flatpickr"
 import "flatpickr/dist/themes/material_blue.css";
 import { toast } from 'react-toastify';
+import moment from 'moment';
 
 class ManageSchedule extends Component {
 
@@ -16,7 +17,7 @@ class ManageSchedule extends Component {
         this.state = {
             selectedDoctor: '',
             allDoctor: [],
-            currentDate: new Date(),
+            currentDate: moment(new Date()).add(1, 'days').startOf('days').toISOString(),
             scheduleTimes: []
         }
     }
@@ -157,7 +158,7 @@ class ManageSchedule extends Component {
                                     className='form-control'
                                     value={this.state.currentDate}
                                     onChange={this.handleChangeDatePicker}
-                                    options={{ minDate: "today", dateFormat: "d/m/Y" }}
+                                    options={{ minDate: moment(new Date()).add(1, 'days').startOf('days').toISOString(), dateFormat: "d/m/Y" }}
                                 />
                             </div>
                             <div className='col-12 my-5 gap-4 d-flex flex-wrap justify-content-center pick-time'>

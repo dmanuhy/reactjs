@@ -72,6 +72,7 @@
         "select-date": "Chọn ngày"
     },
     "doctor-detail": {
-        "doctor-schedule": "Lịch Khám"
+        "doctor-schedule": "Lịch Khám",
+        "no-schedule-message": "Bác sĩ không có lịch khám trong hôm nay, vui lòng chọn ngày khác"
     }
 }
