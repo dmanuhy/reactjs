@@ -6,6 +6,9 @@ const initialState = {
     roles: [],
     positions: [],
     times: [],
+    provinces: [],
+    prices: [],
+    paymentMethods: [],
     users: [],
     doctorList: [],
     allDoctor: [],
@@ -30,6 +33,12 @@ const adminReducer = (state = initialState, action) => {
                     break;
                 case "TIME": state.times = action.data;
                     break;
+                case "PROVINCE": state.provinces = action.data;
+                    break;
+                case "PRICE": state.prices = action.data;
+                    break;
+                case "PAYMENT": state.paymentMethods = action.data;
+                    break;
                 default: break;
             }
             state.isLoading = false;
@@ -38,58 +47,6 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_ALLCODE_FAILED:
             state.isLoading = false;
-            state.genders = [];
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_GENDER_START:
-            state.isLoading = true;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_GENDER_SUCCESS:
-            state.genders = action.data;
-            state.isLoading = false;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_GENDER_FAILED:
-            state.isLoading = false;
-            state.genders = [];
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_POSITION_START:
-            state.isLoading = true;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_POSITION_SUCCESS:
-            state.positions = action.data;
-            state.isLoading = false;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_POSITION_FAILED:
-            state.isLoading = false;
-            state.positions = [];
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_ROLE_START:
-            state.isLoading = true;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_ROLE_SUCCESS:
-            state.roles = action.data;
-            state.isLoading = false;
-            return {
-                ...state,
-            }
-        case actionTypes.FETCH_ROLE_FAILED:
-            state.isLoading = false;
-            state.roles = [];
             return {
                 ...state,
             }

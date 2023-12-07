@@ -5,12 +5,15 @@ import './DoctorDetail.scss';
 import { getDoctorDetailsService } from '../../services/userService'
 import { LANGUAGES } from '../../utils'
 import DoctorSchedule from './DoctorSchedule';
+import { FormattedMessage } from 'react-intl';
+
 class DoctorDetail extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            doctorDetail: {}
+            doctor: {},
+            isShowPriceTable: false,
         }
     }
 
@@ -20,7 +23,7 @@ class DoctorDetail extends Component {
             let res = await getDoctorDetailsService(id);
             if (res && res.errorCode === 0) {
                 this.setState({
-                    doctorDetail: res.data
+                    doctor: res.data
                 });
             }
         }
@@ -43,43 +46,85 @@ class DoctorDetail extends Component {
         }
     }
 
+    changePriceTableState = () => {
+        this.setState({
+            isShowPriceTable: !this.state.isShowPriceTable
+        })
+    }
+
     render() {
-        let { doctorDetail } = this.state;
+        let { doctor, isShowPriceTable } = this.state;
         let language = this.props.language;
         return (
             <>
+                {
+                    console.log(doctor)
+                }
                 <HomeHeader />
                 <div className='doctor-detail-container'>
                     <div className='doctor-introduction row'>
-                        <div className='doctor-image col-3' style={{ backgroundImage: `url(${doctorDetail && doctorDetail.image ? doctorDetail.image : 1})` }}></div>
+                        <div className='doctor-image col-3' style={{ backgroundImage: `url(${doctor && doctor.image ? doctor.image : 1})` }}></div>
                         <div className='doctor-text col-9 d-flex flex-column'>
                             <div className='doctor-text-name fs-3 fw-bold'>
-                                {doctorDetail && doctorDetail.positionData &&
+                                {doctor && doctor.positionData &&
                                     <span>
-                                        {doctorDetail.positionData[this.getValueByLanguage(language)]}: {doctorDetail.firstName}, {doctorDetail.lastName}
+                                        {doctor.positionData[this.getValueByLanguage(language)]}: {doctor.firstName}, {doctor.lastName}
                                     </span>
                                 }
                             </div>
                             <div className='doctor-text-description pt-2'>
-                                {doctorDetail && doctorDetail.Markdown && doctorDetail.Markdown.description &&
-                                    <span>
-                                        {doctorDetail.Markdown.description}
-                                    </span>
+                                {doctor && doctor.Doctor_Detail &&
+                                    <div dangerouslySetInnerHTML={{ __html: doctor.Doctor_Detail.introduction }}></div>
                                 }
                             </div>
                         </div>
                     </div >
                     <div className='doctor-schedule row'>
-                        <div className='right-content col-6'>
-                            <DoctorSchedule doctorID={doctorDetail.id} />
-                        </div>
                         <div className='left-content col-6'>
-                            11
+                            <DoctorSchedule doctorID={doctor.id} />
+                        </div>
+                        <div className='right-content col-6 px-4'>
+                            <div className='top-content py-3'>
+                                <div className='medical-address fw-bold text-uppercase mb-2'><FormattedMessage id="doctor-detail.medical-address"></FormattedMessage></div>
+                                {doctor && doctor.Doctor_Detail &&
+                                    <>
+                                        <div className='fw-bold px-3 py-1'>{doctor.Doctor_Detail.clinicName}</div>
+                                        <div className='px-3 py-1'>{doctor.Doctor_Detail.clinicAddress}</div>
+                                    </>
+                                }
+                            </div>
+                            <div className='bottom-content py-3'>
+                                {
+                                    isShowPriceTable === false ?
+                                        <>
+                                            <div className='price text-uppercase fw-bold'><FormattedMessage id="doctor-detail.price"></FormattedMessage>: <span className='text-success'>300.000 d</span></div>
+                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}>Xem chi tiet</span></div>
+                                        </>
+                                        :
+                                        <>
+                                            <div className='price text-uppercase fw-bold'><FormattedMessage id="doctor-detail.price"></FormattedMessage></div>
+                                            <div className='price-table px-4 py-2'>
+                                                <div className='border border-2 rounded-1'>
+                                                    <div className='multi-price px-5'>
+                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span className='text-success'>300.000 Dong</span></div>
+                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span>300.000 Dong</span></div>
+                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span>300.000 Dong</span></div>
+                                                    </div>
+                                                    <div className='p-2 text-center bg-info text-white'>
+                                                        <span className=''>Phuong Thuc Thanh Toan: </span>
+                                                        <span>Tien Mat va The Tin Dung</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}>An Bang Gia</span></div>
+                                        </>
+                                }
+                            </div>
                         </div>
                     </div>
                     <div className='doctor-information'>
-                        {doctorDetail && doctorDetail.Markdown && doctorDetail.Markdown.contentHTML &&
-                            <div dangerouslySetInnerHTML={{ __html: doctorDetail.Markdown.contentHTML }}></div>
+                        {doctor && doctor.Doctor_Detail &&
+                            <div dangerouslySetInnerHTML={{ __html: doctor.Doctor_Detail.description }}></div>
                         }
                     </div>
                     <div className='doctor-comment'></div>

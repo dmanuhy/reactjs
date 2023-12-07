@@ -73,6 +73,22 @@
     },
     "doctor-detail": {
         "doctor-schedule": "Doctor's Schedule",
-        "no-schedule-message": "The doctor does not have an appointment today, please choose another day"
+        "no-schedule-message": "The doctor does not have an appointment today, please choose another day",
+        "medical-address": "Medical Address",
+        "price": "Price"
+    },
+    "system": {
+        "manage-doctor": {
+            "create-doctor-detail": "Create Doctor Detail",
+            "choose-doctor": "Choose doctor",
+            "introduction": "Introduction",
+            "clinic-name": "Clinic name",
+            "clinic-address": "Clinic address",
+            "province": "Province/City",
+            "price": "Price",
+            "payment-method": "Payment method",
+            "note": "Note",
+            "description": "Description"
+        }
     }
 }

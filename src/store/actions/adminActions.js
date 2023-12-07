@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import { getAllCodeService } from '../../services/allCodeService';
 import {
     createUserService, getAllUserService, deleteUserService, updateUserService,
-    getTopDoctorService, getAllDoctorService, saveDoctorInfoService, getDoctorDetailsService,
+    getTopDoctorService, getAllDoctorService, saveDoctorDetailService, getDoctorDetailsService,
     createDoctorScheduleService, getDoctorScheduleByDateService
 } from '../../services/userService';
 import { toast } from 'react-toastify';
@@ -205,16 +205,16 @@ export const fetchAllDoctorFailed = () => ({
 })
 
 //CREATE doctor info
-export const saveDoctorInfoStart = (data) => {
+export const saveDoctorDetailStart = (data) => {
     return async (dispatch, getState) => {
         try {
-            let res = await saveDoctorInfoService(data);
+            let res = await saveDoctorDetailService(data);
             if (res && res.errorCode === 0) {
                 toast.success("Saved doctor information!");
-                dispatch(saveDoctorInfoSuccess());
+                dispatch(saveDoctorDetailSuccess());
             }
             else {
-                toast.error("Error occured in service when saving!");
+                toast.error(res.message);
                 dispatch({
                     type: actionTypes.SAVE_DOCTOR_INFO_FAILED
                 })
@@ -225,10 +225,10 @@ export const saveDoctorInfoStart = (data) => {
         }
     }
 }
-export const saveDoctorInfoSuccess = () => ({
+export const saveDoctorDetailSuccess = () => ({
     type: actionTypes.SAVE_DOCTOR_INFO_SUCCESS,
 })
-export const saveDoctorInfoFailed = () => ({
+export const saveDoctorDetailFailed = () => ({
     type: actionTypes.SAVE_DOCTOR_INFO_FAILED,
 })
 

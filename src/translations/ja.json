@@ -73,6 +73,22 @@
     },
     "doctor-detail": {
         "doctor-schedule": "医師のスケジュール",
-        "no-schedule-message": "今日は医師の予約がありません。別の日を選択してください"
+        "no-schedule-message": "今日は医師の予約がありません。別の日を選択してください",
+        "medical-address": "医療機関の住所",
+        "price": "価格"
+    },
+    "system": {
+        "manage-doctor": {
+            "create-doctor-detail": "医師情報",
+            "choose-doctor": "医師を選択してください",
+            "introduction": "導入",
+            "clinic-name": "クリニック名",
+            "clinic-address": "クリニックの住所",
+            "province": "県/市",
+            "price": "検査料金",
+            "payment-method": "支払い方法",
+            "note": "注記",
+            "description": "詳細な説明"
+        }
     }
 }

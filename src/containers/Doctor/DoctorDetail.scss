@@ -20,9 +20,33 @@
     .doctor-schedule {
         padding: 20px 200px;
 
-        .right-content {}
+        .left-content {
+            border-right: 1px solid #eeeeee;
+        }
 
-        .left-content {}
+        .right-content {
+            .top-content {
+                border-bottom: 1px solid #eeeeee;
+
+                .medical-address {
+                    font-size: 16px;
+                    color    : #8c8c8c;
+                }
+            }
+
+            .bottom-content {
+                .price {
+                    font-size: 16px;
+                    color    : #8c8c8c;
+                }
+
+                .price-table {
+                    .multi-price {
+                        background-color: #f8f8f8;
+                    }
+                }
+            }
+        }
     }
 
     .doctor-information {

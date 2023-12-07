@@ -73,6 +73,22 @@
     },
     "doctor-detail": {
         "doctor-schedule": "Lịch Khám",
-        "no-schedule-message": "Bác sĩ không có lịch khám trong hôm nay, vui lòng chọn ngày khác"
+        "no-schedule-message": "Bác sĩ không có lịch khám trong hôm nay, vui lòng chọn ngày khác",
+        "medical-address": "Địa chỉ khám bệnh",
+        "price": "Giá khám"
+    },
+    "system": {
+        "manage-doctor": {
+            "create-doctor-detail": "Thông tin bác sĩ",
+            "choose-doctor": "Chọn bác sĩ",
+            "introduction": "Giới thiệu",
+            "clinic-name": "Tên phòng khám",
+            "clinic-address": "Địa chỉ phòng khám",
+            "province": "Tỉnh/Thành phố",
+            "price": "Giá khám",
+            "payment-method": "Phương thức thanh toán",
+            "note": "Ghi chú",
+            "description": "Mô tả chi tiết"
+        }
     }
 }

@@ -107,7 +107,7 @@ class ManageSchedule extends Component {
             })
         }
     }
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let { scheduleTimes, currentDate, selectedDoctor } = this.state;
         let result = [];
         if (!selectedDoctor) {
@@ -127,8 +127,11 @@ class ManageSchedule extends Component {
                     result.push(object);
                     return result;
                 })
-                this.props.createDoctorScheduleRedux({
+                await this.props.createDoctorScheduleRedux({
                     schedule: result
+                })
+                this.setState({
+                    scheduleTimes: this.props.scheduleTimesRedux
                 })
             }
         }
