@@ -75,7 +75,13 @@
         "doctor-schedule": "Doctor's Schedule",
         "no-schedule-message": "The doctor does not have an appointment today, please choose another day",
         "medical-address": "Medical Address",
-        "price": "Price"
+        "price": "Price",
+        "view-detail": "View Detail",
+        "hide-price-table": "Hide",
+        "vietnam": "Vietnam",
+        "usa": "USA",
+        "japan": "Japan",
+        "payment-method": "Payment method"
     },
     "system": {
         "manage-doctor": {

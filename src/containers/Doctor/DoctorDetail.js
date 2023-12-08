@@ -6,6 +6,7 @@ import { getDoctorDetailsService } from '../../services/userService'
 import { LANGUAGES } from '../../utils'
 import DoctorSchedule from './DoctorSchedule';
 import { FormattedMessage } from 'react-intl';
+import NumberFormat from 'react-number-format';
 
 class DoctorDetail extends Component {
 
@@ -41,6 +42,19 @@ class DoctorDetail extends Component {
                 return 'valueEN';
             case LANGUAGES.JA:
                 return 'valueJA';
+            default:
+                break;
+        }
+    }
+
+    getCurrencyByLanguage = (chosenLanguage) => {
+        switch (chosenLanguage) {
+            case LANGUAGES.VI:
+                return ' đ';
+            case LANGUAGES.EN:
+                return ' $';
+            case LANGUAGES.JA:
+                return ' ¥';
             default:
                 break;
         }
@@ -97,8 +111,14 @@ class DoctorDetail extends Component {
                                 {
                                     isShowPriceTable === false ?
                                         <>
-                                            <div className='price text-uppercase fw-bold'><FormattedMessage id="doctor-detail.price"></FormattedMessage>: <span className='text-success'>300.000 d</span></div>
-                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}>Xem chi tiet</span></div>
+                                            <div className='price text-uppercase fw-bold'>
+                                                <span><FormattedMessage id="doctor-detail.price"></FormattedMessage>: </span>
+                                                {
+                                                    doctor && doctor.Doctor_Detail &&
+                                                    <NumberFormat className='text-success text-lowercase' value={doctor && doctor.Doctor_Detail && doctor.Doctor_Detail.priceData[this.getValueByLanguage(language)]} displayType={'text'} thousandSeparator={true} suffix={this.getCurrencyByLanguage(language)} />
+                                                }
+                                            </div>
+                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.view-detail"></FormattedMessage></span></div>
                                         </>
                                         :
                                         <>
@@ -106,17 +126,40 @@ class DoctorDetail extends Component {
                                             <div className='price-table px-4 py-2'>
                                                 <div className='border border-2 rounded-1'>
                                                     <div className='multi-price px-5'>
-                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span className='text-success'>300.000 Dong</span></div>
-                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span>300.000 Dong</span></div>
-                                                        <div className='d-flex justify-content-between py-2'><span>Việt Nam</span><span>300.000 Dong</span></div>
+                                                        <div className='d-flex justify-content-between py-2'>
+                                                            <span><FormattedMessage id="doctor-detail.vietnam"></FormattedMessage></span>
+                                                            {
+                                                                doctor && doctor.Doctor_Detail &&
+                                                                <NumberFormat className='text-success text-lowercase' value={doctor.Doctor_Detail.priceData['valueVI']} displayType={'text'} thousandSeparator={true} suffix={this.getCurrencyByLanguage('vi')} />
+                                                            }
+                                                        </div>
+                                                        <div className='d-flex justify-content-between py-2'>
+                                                            <span><FormattedMessage id="doctor-detail.usa"></FormattedMessage></span>
+                                                            {
+                                                                doctor && doctor.Doctor_Detail &&
+                                                                <NumberFormat className='text-success text-lowercase' value={doctor.Doctor_Detail.priceData['valueEN']} displayType={'text'} thousandSeparator={true} suffix={this.getCurrencyByLanguage('en')} />
+                                                            }
+                                                        </div>
+                                                        <div className='d-flex justify-content-between py-2'>
+                                                            <span><FormattedMessage id="doctor-detail.japan"></FormattedMessage></span>
+                                                            {
+                                                                doctor && doctor.Doctor_Detail &&
+                                                                <NumberFormat className='text-success text-lowercase' value={doctor.Doctor_Detail.priceData['valueJA']} displayType={'text'} thousandSeparator={true} suffix={this.getCurrencyByLanguage('ja')} />
+                                                            }
+                                                        </div>
                                                     </div>
                                                     <div className='p-2 text-center bg-info text-white'>
-                                                        <span className=''>Phuong Thuc Thanh Toan: </span>
-                                                        <span>Tien Mat va The Tin Dung</span>
+                                                        <span className=''><FormattedMessage id="doctor-detail.payment-method"></FormattedMessage>: </span>
+                                                        <span>
+                                                            {
+                                                                doctor && doctor.Doctor_Detail &&
+                                                                doctor.Doctor_Detail.paymentData[this.getValueByLanguage(language)]
+                                                            }
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}>An Bang Gia</span></div>
+                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.hide-price-table"></FormattedMessage></span></div>
                                         </>
                                 }
                             </div>

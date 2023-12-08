@@ -75,7 +75,13 @@
         "doctor-schedule": "Lịch Khám",
         "no-schedule-message": "Bác sĩ không có lịch khám trong hôm nay, vui lòng chọn ngày khác",
         "medical-address": "Địa chỉ khám bệnh",
-        "price": "Giá khám"
+        "price": "Giá khám",
+        "view-detail": "Xem chi tiết",
+        "hide-price-table": "Ẩn bảng giá",
+        "vietnam": "Việt Nam",
+        "usa": "Mỹ",
+        "japan": "Nhật Bản",
+        "payment-method": "Phương thức thanh toán"
     },
     "system": {
         "manage-doctor": {

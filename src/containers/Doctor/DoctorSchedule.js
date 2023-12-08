@@ -52,7 +52,7 @@ class DoctorSchedule extends Component {
         let days = [];
         for (let i = 1; i <= DAYS; i++) {
             let object = {};
-            object.label = moment(new Date()).locale(language).add(i, 'days').format('ddd, DD - MMM');
+            object.label = moment(new Date()).locale(language).add(i, 'days').format('dddd, DD - MMMM');
             object.value = moment(new Date()).add(i, 'days').startOf('days').toISOString();
             days.push(object);
         }
