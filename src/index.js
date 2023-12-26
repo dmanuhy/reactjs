@@ -12,9 +12,9 @@ import reduxStore, { persistor } from './redux';
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, faCalendarDays, faClock, faCircleInfo, faHandPointer, } from "@fortawesome/free-solid-svg-icons";
+import { faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, faCalendarDays, faClock, faCircleInfo, faHandPointer, faX, } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle, faFacebookF } from "@fortawesome/free-brands-svg-icons";
-library.add(faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, faGoogle, faFacebookF, faCalendarDays, faClock, faCircleInfo, faHandPointer);
+library.add(faBookMedical, faMagnifyingGlass, faHospital, faLaptopMedical, faNotesMedical, faMicroscope, faTooth, faListCheck, faSuitcaseMedical, faUserPen, faUserXmark, faUserDoctor, faRightFromBracket, faEyeSlash, faEye, faGoogle, faFacebookF, faCalendarDays, faClock, faCircleInfo, faHandPointer, faX);
 
 const renderApp = () => {
     ReactDOM.render(

@@ -50,7 +50,7 @@ class DoctorDetail extends Component {
     getCurrencyByLanguage = (chosenLanguage) => {
         switch (chosenLanguage) {
             case LANGUAGES.VI:
-                return ' đ';
+                return ' ₫';
             case LANGUAGES.EN:
                 return ' $';
             case LANGUAGES.JA:
@@ -66,14 +66,24 @@ class DoctorDetail extends Component {
         })
     }
 
+    buildDoctorInfoForBooking = () => {
+        return {
+            doctorID: this.state.doctor.id,
+            firstName: this.state.doctor.firstName,
+            lastName: this.state.doctor.lastName,
+            position: this.state.doctor.positionData,
+            image: this.state.doctor.image,
+            introduction: this.state.doctor.Doctor_Detail && this.state.doctor.Doctor_Detail.introduction,
+            price: this.state.doctor.Doctor_Detail && this.state.doctor.Doctor_Detail.priceData,
+        }
+    }
+
     render() {
         let { doctor, isShowPriceTable } = this.state;
+        let doctorInfo = this.buildDoctorInfoForBooking();
         let language = this.props.language;
         return (
             <>
-                {
-                    console.log(doctor)
-                }
                 <HomeHeader />
                 <div className='doctor-detail-container'>
                     <div className='doctor-introduction row'>
@@ -95,7 +105,10 @@ class DoctorDetail extends Component {
                     </div >
                     <div className='doctor-schedule row'>
                         <div className='left-content col-6'>
-                            <DoctorSchedule doctorID={doctor.id} />
+                            <DoctorSchedule
+                                doctorInfo={doctorInfo}
+                                getValueByLanguage={this.getValueByLanguage}
+                            />
                         </div>
                         <div className='right-content col-6 px-4'>
                             <div className='top-content py-3'>
@@ -118,7 +131,7 @@ class DoctorDetail extends Component {
                                                     <NumberFormat className='text-success text-lowercase' value={doctor && doctor.Doctor_Detail && doctor.Doctor_Detail.priceData[this.getValueByLanguage(language)]} displayType={'text'} thousandSeparator={true} suffix={this.getCurrencyByLanguage(language)} />
                                                 }
                                             </div>
-                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.view-detail"></FormattedMessage></span></div>
+                                            <div><span className='text-info' style={{ cursor: "pointer" }} onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.view-detail"></FormattedMessage></span></div>
                                         </>
                                         :
                                         <>
@@ -159,7 +172,7 @@ class DoctorDetail extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div><span className='text-info' onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.hide-price-table"></FormattedMessage></span></div>
+                                            <div><span style={{ cursor: "pointer" }} className='text-info' onClick={() => this.changePriceTableState()}><FormattedMessage id="doctor-detail.hide-price-table"></FormattedMessage></span></div>
                                         </>
                                 }
                             </div>
@@ -172,6 +185,7 @@ class DoctorDetail extends Component {
                     </div>
                     <div className='doctor-comment'></div>
                 </div >
+
             </>
         );
     }

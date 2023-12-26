@@ -81,7 +81,20 @@
         "vietnam": "Vietnam",
         "usa": "USA",
         "japan": "Japan",
-        "payment-method": "Payment method"
+        "payment-method": "Payment method",
+        "booking-modal": {
+            "booking-information": "Booking Information",
+            "price": "Price",
+            "patient-full-name": "Patient Full Name",
+            "patient-gender": "Patient Gender",
+            "male": "Male",
+            "female": "Female",
+            "year-of-birth": "Year of Birth",
+            "phone-number": "Patient or Guardian Phone Number",
+            "reason": "Reasons for health checkup",
+            "confirm": "Confirm",
+            "cancel": "Cancel"
+        }
     },
     "system": {
         "manage-doctor": {

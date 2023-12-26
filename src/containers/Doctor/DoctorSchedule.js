@@ -5,6 +5,7 @@ import * as actions from "../../store/actions"
 import { LANGUAGES } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormattedMessage } from 'react-intl';
+import BookingModal from '../../components/Modal/BookingModal';
 import moment from 'moment';
 import "moment/locale/vi"
 import "moment/locale/ja"
@@ -17,16 +18,18 @@ class DoctorSchedule extends Component {
         super(props);
         this.state = {
             daysToChoose: [],
-            doctorSchedules: []
+            doctorSchedules: [],
+            isOpenBookingModal: false,
+            selectedTime: {}
         }
     }
 
     componentDidMount() {
         let days = this.getDaysToChoose(this.props.language)
+
         this.setState({
             daysToChoose: days
         })
-
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -41,7 +44,7 @@ class DoctorSchedule extends Component {
                 doctorSchedules: this.props.doctorSchedulesRedux
             })
         }
-        if (prevProps.doctorID !== this.props.doctorID) {
+        if (prevProps.doctorInfo.doctorID !== this.props.doctorInfo.doctorID) {
             let schedules = this.handleOnChangeDate(this.state.daysToChoose[0].value)
             this.setState({
                 doctorSchedules: schedules
@@ -56,8 +59,33 @@ class DoctorSchedule extends Component {
             object.value = moment(new Date()).add(i, 'days').startOf('days').toISOString();
             days.push(object);
         }
-        return days
+        return days;
     }
+
+    handleOnChangeDate = async (date) => {
+        let { doctorInfo } = this.props
+        await this.props.fetchDoctorSchedulesByDateRedux(doctorInfo.doctorID, date);
+    }
+    handleClickScheduleTime = (time) => {
+        this.setState({
+            isOpenBookingModal: true,
+            selectedTime: time
+        })
+    }
+
+    getCurrencyByLanguage = (chosenLanguage) => {
+        switch (chosenLanguage) {
+            case LANGUAGES.VI:
+                return ' ₫';
+            case LANGUAGES.EN:
+                return ' $';
+            case LANGUAGES.JA:
+                return ' ¥';
+            default:
+                break;
+        }
+    }
+
     getValueByLanguage = (chosenLanguage) => {
         switch (chosenLanguage) {
             case LANGUAGES.VI:
@@ -71,16 +99,19 @@ class DoctorSchedule extends Component {
         }
     }
 
-    handleOnChangeDate = async (date) => {
-        let { doctorID } = this.props
-        await this.props.fetchDoctorSchedulesByDateRedux(doctorID, date);
+    handleCloseBookingModal = () => {
+        this.setState({
+            isOpenBookingModal: false
+        })
     }
-
     render() {
-        let { daysToChoose, doctorSchedules } = this.state
-        let { language } = this.props
+        let { daysToChoose, doctorSchedules, isOpenBookingModal, selectedTime } = this.state
+        let { language, doctorInfo } = this.props
         return (
             <>
+                {
+                    console.log(doctorSchedules)
+                }
                 <div className='schedule-container'>
                     <div className='choose-date d-flex align-items-center gap-2 mb-4'>
                         <span className='fs-3' style={{ color: "#45c3d2" }}><FontAwesomeIcon icon="fa-solid fa-calendar-days" /></span>
@@ -106,8 +137,10 @@ class DoctorSchedule extends Component {
                                 doctorSchedules && doctorSchedules.length > 0 ?
                                     doctorSchedules.map((item, index) => {
                                         return (
-                                            <div className='no-wrap'>
-                                                <button key={index}><span className='no-wrap'>{item.timeData[this.getValueByLanguage(language)]}</span></button>
+                                            <div key={index} className='no-wrap'>
+                                                <button onClick={() => this.handleClickScheduleTime(item)}>
+                                                    <span className='no-wrap'>{item.timeData[this.getValueByLanguage(language)]}</span>
+                                                </button>
                                             </div>
                                         )
                                     })
@@ -119,6 +152,14 @@ class DoctorSchedule extends Component {
                         </div>
                     </div>
                 </div>
+                <BookingModal
+                    isOpen={isOpenBookingModal}
+                    time={selectedTime}
+                    closeBookingModal={this.handleCloseBookingModal}
+                    doctorInfo={doctorInfo}
+                    getValueByLanguage={this.getValueByLanguage}
+                    getCurrencyByLanguage={this.getCurrencyByLanguage}
+                />
             </>
         );
     }

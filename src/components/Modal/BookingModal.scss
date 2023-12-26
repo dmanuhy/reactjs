@@ -1,0 +1,57 @@
+.booking-modal-container {
+
+    .modal-content {
+        height        : 600px !important;
+        display       : flex;
+        flex-direction: column;
+
+        .booking-modal-header {
+            border-top-right-radius: 5px;
+            border-top-left-radius : 5px;
+            background-color       : #a3f5ff;
+            padding                : 10px 20px;
+            display                : flex;
+            justify-content        : space-between;
+
+            border-bottom: 1px solid #bfbbbb;
+
+            .title {
+                font-size  : 18px;
+                font-weight: 600;
+            }
+
+            .close-icon {
+                font-size: 16px;
+                cursor   : pointer;
+            }
+        }
+
+        .booking-modal-body {
+            height    : 100%;
+            padding   : 10px 20px;
+            overflow-y: auto;
+
+            .doctor-image {
+                background   : center center no-repeat;
+                width        : 150px;
+                height       : 150px;
+                border-radius: 50%;
+                border       : 1px solid #49bce2;
+            }
+        }
+
+        .booking-modal-footer {
+            border-top: 2px solid #eee;
+            padding   : 10px;
+        }
+    }
+
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width   : 1200px;
+        margin-right: auto;
+        margin-left : auto;
+    }
+}

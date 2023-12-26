@@ -35,17 +35,21 @@ class ManageSchedule extends Component {
             })
         }
         if (prevProps.scheduleTimesRedux !== this.props.scheduleTimesRedux) {
-            let timesToSelect = this.props.scheduleTimesRedux;
-            if (timesToSelect && timesToSelect.length > 0) {
-                timesToSelect = timesToSelect.map(time => ({
-                    ...time,
-                    isSelected: false
-                }))
-            }
-            this.setState({
-                scheduleTimes: timesToSelect
-            })
+            this.buildOriginScheduleTimes()
         }
+    }
+
+    buildOriginScheduleTimes = () => {
+        let timesToSelect = this.props.scheduleTimesRedux;
+        if (timesToSelect && timesToSelect.length > 0) {
+            timesToSelect = timesToSelect.map(time => ({
+                ...time,
+                isSelected: false
+            }))
+        }
+        this.setState({
+            scheduleTimes: timesToSelect
+        })
     }
 
     getValueByLanguage = (chosenLanguage) => {
@@ -90,7 +94,6 @@ class ManageSchedule extends Component {
         this.setState({
             currentDate: date[0],
         })
-        console.log(this.state.currentDate);
     }
 
     handleSelectTime = (selectedTime) => {
@@ -130,9 +133,7 @@ class ManageSchedule extends Component {
                 await this.props.createDoctorScheduleRedux({
                     schedule: result
                 })
-                this.setState({
-                    scheduleTimes: this.props.scheduleTimesRedux
-                })
+                this.buildOriginScheduleTimes()
             }
         }
     }

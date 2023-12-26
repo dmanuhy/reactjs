@@ -81,7 +81,20 @@
         "vietnam": "ベトナム",
         "usa": "アメリカ",
         "japan": "日本",
-        "payment-method": "支払い方法"
+        "payment-method": "支払い方法",
+        "booking-modal": {
+            "booking-information": "健康診断日程のご案内",
+            "price": "価格",
+            "patient-full-name": "患者の氏名",
+            "patient-gender": "性別",
+            "male": "男",
+            "female": "女性",
+            "year-of-birth": "生年",
+            "phone-number": "患者または保護者の電話番号",
+            "reason": "健康診断の理由",
+            "confirm": "確認する",
+            "cancel": "キャンセル"
+        }
     },
     "system": {
         "manage-doctor": {
