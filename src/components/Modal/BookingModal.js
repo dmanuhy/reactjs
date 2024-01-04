@@ -9,6 +9,8 @@ import FlatPickr from "react-flatpickr"
 import NumberFormat from 'react-number-format';
 import { bookAppointment } from '../../services/bookingService';
 import { toast } from 'react-toastify';
+import "moment/locale/vi"
+import "moment/locale/ja"
 class BookingModal extends Component {
 
     constructor(props) {
@@ -30,17 +32,29 @@ class BookingModal extends Component {
 
     }
 
+    buildDoctorName = () => {
+        switch (this.props.language) {
+            case "en": return this.props.doctorInfo.firstName + " " + this.props.doctorInfo.lastName;
+            case "ja": return this.props.doctorInfo.firstName + " " + this.props.doctorInfo.lastName
+            case "vi": return this.props.doctorInfo.lastName + " " + this.props.doctorInfo.firstName;
+            default: return this.props.doctorInfo.firstName + " " + this.props.doctorInfo.lastName;
+        }
+    }
+
     handleBookAppointment = async () => {
         let res = await bookAppointment({
             patientID: this.props.userInfo.id,
             patientName: this.state.patientName,
             gender: this.state.gender === true ? "M" : "F",
-            dob: this.state.dob,
+            dob: moment(this.state.dob).locale(this.props.language).format('DDD/MMMM/YYYY'),
             phoneNumber: this.state.phoneNumber,
             reason: this.state.reason,
             doctorID: this.props.doctorInfo.doctorID,
+            doctorFullname: this.buildDoctorName(),
             date: this.props.time.date,
-            timeType: this.props.time.timeType
+            dateTime: "[" + this.props.time.timeData[this.props.getValueByLanguage(this.props.language)] + "] - " + moment(this.props.time.date).locale(this.props.language).format('DDD/MMMM/YYYY'),
+            timeType: this.props.time.timeType,
+            language: this.props.language
         })
         if (res && res.errorCode === 0) {
             toast.success("Booked new appointment !")
@@ -129,7 +143,7 @@ class BookingModal extends Component {
                                 className='form-control'
                                 value={this.state.dob}
                                 onChange={this.handleChangeDatePicker}
-                                options={{ dateFormat: "d/m/Y" }}
+                                options={{ dateFormat: "d/m/Y", maxDate: "today" }}
                             />
                         </div>
                         <div className='col-3'>
