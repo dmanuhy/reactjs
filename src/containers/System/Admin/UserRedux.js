@@ -206,7 +206,7 @@ class UserRedux extends Component {
                         <div style={{ width: "1200px" }} className='container mt-5'>
                             <div className="row g-3">
                                 <div className="col-md-12 fs-4">
-                                    <FormattedMessage id="manage-user.add-new-user" />
+                                    <span className="fw-bold"><FormattedMessage id="manage-user.add-new-user" /></span>
                                 </div>
                                 <div className="col-md-12 text-center text-uppercase fs-4">{isLoadingGenders === true ? "Loading ..." : ""}</div>
                                 <div className="col-md-6">

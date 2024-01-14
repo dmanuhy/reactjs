@@ -38,6 +38,7 @@
             "manage-handbook": "Manage handbooks"
         },
         "doctor": {
+            "user": "Management",
             "manage-schedule": "Manage Schedule"
         }
     },

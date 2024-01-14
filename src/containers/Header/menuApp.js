@@ -34,7 +34,7 @@ export const adminMenu = [
 export const doctorMenu = [
 
     { //Quản lý lich kham
-        name: "menu.admin.user",
+        name: "menu.doctor.user",
         menus: [
             { name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule' },
         ]

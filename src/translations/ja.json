@@ -15,7 +15,6 @@
     "home-banner": {
         "banner-title": "医療財団",
         "banner-suptitle": "総合的なヘルスケア",
-        "": "Tìm chuyên khoa khám bệnh...",
         "specialty-checkup": "特定健康診断",
         "online-checkup": "オンライン健康診断",
         "general-checkup": "一般健康診断",
@@ -38,7 +37,8 @@
             "manage-handbook": "ハンドブックの管理"
         },
         "doctor": {
-            "manage-schedule": "Manage Schedule"
+            "user": "管理",
+            "manage-schedule": "スケジュールの管理"
         }
     },
     "manage-user": {

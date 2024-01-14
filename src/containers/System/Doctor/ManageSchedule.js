@@ -143,7 +143,7 @@ class ManageSchedule extends Component {
         return (
             <>
                 <div className='manage-schedule-container'>
-                    <div className='manage-schedule-title text-uppercase text-center fw-bold fs-4'>
+                    <div className='title text-uppercase text-center fw-bold fs-4'>
                         <FormattedMessage id="manage-schedule.manage-doctor-schedule"></FormattedMessage>
                     </div>
                     <div className='manage-schedule-content d-flex justify-content-center'>

@@ -38,6 +38,7 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
+            "user": "Quản  lý",
             "manage-schedule": "Quản lý lịch khám"
         }
     },

@@ -168,7 +168,7 @@ class ManageDoctor extends Component {
                     console.log(this.state)
                 }
                 <div className='manage-doctor-container'>
-                    <div className='manage-doctor-title'><FormattedMessage id="system.manage-doctor.create-doctor-detail"></FormattedMessage></div>
+                    <div className='title'><FormattedMessage id="system.manage-doctor.create-doctor-detail"></FormattedMessage></div>
                     <div className='doctor-information row'>
                         <div className='col-6 form-group'>
                             <div className='mb-3'>
