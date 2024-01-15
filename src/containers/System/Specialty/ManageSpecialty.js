@@ -4,6 +4,8 @@ import "./ManageSpecialty.scss"
 import { CommonUtils } from '../../../utils';
 import LightBox from 'react-image-lightbox';
 import { Editor } from 'primereact/editor';
+import { createSpecialtyService } from '../../../services/specialtyService';
+import { toast } from 'react-toastify';
 
 class ManageSpecialty extends Component {
 
@@ -44,8 +46,14 @@ class ManageSpecialty extends Component {
         }
     }
 
-    handleCreateSpecialty = () => {
-        console.log(this.state)
+    handleCreateSpecialty = async () => {
+        let res = await createSpecialtyService(this.state);
+        if (res && res.errorCode === 0) {
+            toast.success(res.message);
+        } else {
+            toast.error(res.message)
+            console.log(res)
+        }
     }
 
     render() {
