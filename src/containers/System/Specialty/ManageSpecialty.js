@@ -50,6 +50,13 @@ class ManageSpecialty extends Component {
         let res = await createSpecialtyService(this.state);
         if (res && res.errorCode === 0) {
             toast.success(res.message);
+            this.setState({
+                name: '',
+                image: '',
+                previewImageUrl: '',
+                isOpenImage: false,
+                description: ''
+            })
         } else {
             toast.error(res.message)
             console.log(res)
@@ -63,11 +70,11 @@ class ManageSpecialty extends Component {
                 <div className='manage-specialty-container'>
                     <div className='title'>Quan li chuyen khoa</div>
                     <div className='section-add-new row'>
-                        <div class="specialty-name col-6">
-                            <label for="name" class="form-label">Specialty Name</label>
-                            <input onChange={(event) => this.setState({ name: event.target.value })} type="text" class="form-control" id="name" />
+                        <div className="specialty-name col-6">
+                            <label htmlFor="name" className="form-label">Specialty Name</label>
+                            <input value={this.state.name} onChange={(event) => this.setState({ name: event.target.value })} type="text" className="form-control" id="name" />
                         </div>
-                        <div class="specialty-image col-6 d-flex gap-3">
+                        <div className="specialty-image col-6 d-flex gap-3">
                             <label className='upload-image' htmlFor='previewImage'>
                                 Tai Anh <i className="fas fa-upload"></i>
                             </label>

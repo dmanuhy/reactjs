@@ -32,9 +32,15 @@
     // }
     .section-body {
         .body-content {
+            .specialty-name{
+                cursor: pointer;
+                &:hover{
+                    color: #49bce2;
+                }
+            }
             .bg-image {
                 height: 160px;
-
+                margin-bottom: 7px !important;
                 width: 94%;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -42,9 +48,6 @@
                 background-color: #eee;
                 margin: 0 10px;
 
-                &.img-specialty {
-                    background-image: url("../../assets/images/popular-specialty/co-xuong-khop.jpg");
-                }
                 &.img-medical-facility {
                     background-image: url("../../assets/images/medical-facility/mediteclogo.jpeg");
                 }

@@ -3,14 +3,32 @@ import { connect } from 'react-redux';
 import Slider from 'react-slick';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { getAllSpecialtyService } from '../../../services/specialtyService';
 //import Specialty from './Section/Specialty';
 class PopularSpecialty extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            allSpecialty: []
+        };
+    }
+    async componentDidMount() {
+        let res = await getAllSpecialtyService();
+        if (res && res.errorCode === 0) {
+            this.setState({
+                allSpecialty: res.data
+            })
+        }
+
+    }
 
     render() {
-
+        let { allSpecialty } = this.state
         return (
             <>
+                {
+                    console.log(this.state)
+                }
                 <div className='section-general section-specialty'>
                     <div className='section-container'>
                         <div className='section-header'>
@@ -22,30 +40,16 @@ class PopularSpecialty extends Component {
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
-                                <div className='body-content'>
-                                    <div className='bg-image img-specialty' />
-                                    <span>Cơ Xương Khớp</span>
-                                </div>
+                                {allSpecialty && allSpecialty.length > 0 &&
+                                    allSpecialty.map((item, index) => {
+                                        return (
+                                            <div className='body-content' key={index}>
+                                                <div style={{ backgroundImage: `url(${item.image})` }} className='bg-image' />
+                                                <span className='specialty-name'>{item.name}</span>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Slider>
                         </div>
                     </div>
