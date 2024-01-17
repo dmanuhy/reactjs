@@ -104,6 +104,7 @@
             "introduction": "Introduction",
             "clinic-name": "Clinic name",
             "clinic-address": "Clinic address",
+            "specialty": "Specialty",
             "province": "Province/City",
             "price": "Price",
             "payment-method": "Payment method",

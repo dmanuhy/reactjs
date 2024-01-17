@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 //Component
 import HomeHeader from './HomeHeader';
 import HomeBanner from './HomeBanner';
-import PopularSpecialty from './Section/PopularSpecialty';
+import PopularSpecialty from './Section/Specialty/PopularSpecialty';
 import MedicalFacility from './Section/MedicalFacility';
 import OutstandingDoctor from './Section/OutstandingDoctor';
 import HandBook from './Section/HandBook';

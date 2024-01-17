@@ -17,6 +17,7 @@ import DoctorDetail from './Doctor/DoctorDetail';
 import Doctor from "../routes/Doctor"
 import VerifyBookAppointment from './Patient/VerifyBookAppointment';
 import CustomScrollbars from '../components/CustomScrollbars';
+import SpecialtyDetail from './HomePage/Section/Specialty/SpecialtyDetail';
 
 class App extends Component {
 
@@ -52,6 +53,7 @@ class App extends Component {
 
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DOCTOR_DETAIL} component={DoctorDetail}></Route>
+                                    <Route path={path.SPECIALTY_DETAIL} component={SpecialtyDetail}></Route>
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyBookAppointment}></Route>
                                 </Switch>
                             </CustomScrollbars>

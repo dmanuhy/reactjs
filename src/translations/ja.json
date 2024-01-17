@@ -103,6 +103,7 @@
             "introduction": "導入",
             "clinic-name": "クリニック名",
             "clinic-address": "クリニックの住所",
+            "specialty": "専門医療",
             "province": "県/市",
             "price": "検査料金",
             "payment-method": "支払い方法",

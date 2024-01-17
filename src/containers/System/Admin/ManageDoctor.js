@@ -5,7 +5,7 @@ import './ManageDoctor.scss'
 import { LANGUAGES, MANAGE_ACTION } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
 import Select from 'react-select';
-
+import { getAllSpecialtyService } from '../../../services/specialtyService';
 import { Editor } from 'primereact/editor';
 
 class ManageDoctor extends Component {
@@ -21,6 +21,7 @@ class ManageDoctor extends Component {
             selectedMethod: "",
             clinicName: '',
             clinicAddress: '',
+            selectedSpecialty: "",
             note: '',
             count: 0,
 
@@ -28,11 +29,18 @@ class ManageDoctor extends Component {
             prices: [],
             paymentMethods: [],
             provinces: [],
+            allSpecialty: [],
 
             hasOldData: false,
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
+        let response = await getAllSpecialtyService();
+        this.setState({
+            allSpecialty: response.data,
+            selectedSpecialty: response && response.data ? response.data[0].id : ""
+        })
+        console.log(this.state.allSpecialty)
         this.props.fetchAllDoctorRedux();
         this.props.fetchAllcodeRedux('PROVINCE');
         this.props.fetchAllcodeRedux('PRICE');
@@ -110,6 +118,7 @@ class ManageDoctor extends Component {
         this.props.saveDoctorDetailRedux({
             doctorID: this.state.selectedDoctor.value,
             introduction: this.state.introduction,
+            specialtyID: this.state.selectedSpecialty,
             provinceID: this.state.selectedProvince,
             priceID: this.state.selectedPrice,
             paymentID: this.state.selectedMethod,
@@ -131,6 +140,7 @@ class ManageDoctor extends Component {
             this.setState({
                 introduction: doctorDetail.introduction,
                 description: doctorDetail.description,
+                selectedSpecialty: doctorDetail.specialtyID,
                 selectedProvince: doctorDetail.provinceID,
                 selectedPrice: doctorDetail.priceID,
                 selectedMethod: doctorDetail.paymentID,
@@ -146,6 +156,7 @@ class ManageDoctor extends Component {
                 selectedProvince: this.state.provinces.length > 0 ? this.state.provinces[0].key : "",
                 selectedPrice: this.state.prices.length > 0 ? this.state.prices[0].key : "",
                 selectedMethod: this.state.paymentMethods.length > 0 ? this.state.paymentMethods[0].key : "",
+                selectedSpecialty: this.state.allSpecialty.length > 0 ? this.state.allSpecialty[0].id : "",
                 clinicName: "",
                 clinicAddress: "",
                 note: "",
@@ -160,13 +171,10 @@ class ManageDoctor extends Component {
     }
 
     render() {
-        let { clinicName, clinicAddress, selectedPrice, selectedMethod, prices, provinces, selectedProvince, paymentMethods, note, hasOldData } = this.state
+        let { allSpecialty, clinicName, clinicAddress, selectedPrice, selectedMethod, prices, provinces, selectedProvince, paymentMethods, note, hasOldData, selectedSpecialty } = this.state
         let { language } = this.props
         return (
             <>
-                {
-                    console.log(this.state)
-                }
                 <div className='manage-doctor-container'>
                     <div className='title'><FormattedMessage id="system.manage-doctor.create-doctor-detail"></FormattedMessage></div>
                     <div className='doctor-information row'>
@@ -193,6 +201,28 @@ class ManageDoctor extends Component {
                                 <input value={clinicAddress} className='form-control' onChange={(event) => this.setState({ clinicAddress: event.target.value })} />
                             </div>
                             <div className='mb-3'>
+                                <label><FormattedMessage id="system.manage-doctor.specialty"></FormattedMessage></label>
+                                <select className="form-select" value={selectedSpecialty}
+                                    onChange={(event) => this.setState({ selectedSpecialty: event.target.value })}
+                                >
+                                    {allSpecialty && allSpecialty.length > 0 &&
+                                        allSpecialty.map((item, index) => {
+                                            return (
+                                                <option key={index} value={item.id}>
+                                                    {item.name}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className='mb-3'>
+                                <label><FormattedMessage id="system.manage-doctor.note"></FormattedMessage></label>
+                                <input value={note} className='form-control' onChange={(event) => this.setState({ note: event.target.value })} />
+                            </div>
+                        </div>
+                        <div className='col-2'>
+                            <div className='mb-3'>
                                 <label><FormattedMessage id="system.manage-doctor.province"></FormattedMessage></label>
                                 <select className="form-select" value={selectedProvince}
                                     onChange={(event) => this.setState({ selectedProvince: event.target.value })}
@@ -208,8 +238,6 @@ class ManageDoctor extends Component {
                                     }
                                 </select>
                             </div>
-                        </div>
-                        <div className='col-2'>
                             <div className='mb-3'>
                                 <label><FormattedMessage id="system.manage-doctor.price"></FormattedMessage></label>
                                 <select className="form-select" value={selectedPrice}
@@ -241,10 +269,6 @@ class ManageDoctor extends Component {
                                         })
                                     }
                                 </select>
-                            </div>
-                            <div className='mb-3'>
-                                <label><FormattedMessage id="system.manage-doctor.note"></FormattedMessage></label>
-                                <input value={note} className='form-control' onChange={(event) => this.setState({ note: event.target.value })} />
                             </div>
                         </div>
                     </div>

@@ -1,11 +1,15 @@
 export const path = {
-    HOME: '/',
-    HOMEPAGE: '/home',
+    SYSTEM: '/system',
+    DOCTOR: '/doctor',
+
     LOGIN: '/login',
     LOG_OUT: '/logout',
-    SYSTEM: '/system',
+
+    HOME: '/',
+    HOMEPAGE: '/home',
     DOCTOR_DETAIL: '/doctor-detail/:id',
-    DOCTOR: '/doctor',
+    SPECIALTY_DETAIL: '/specialty/:id',
+
     VERIFY_EMAIL_BOOKING: '/verify-book-appointment/:token',
 };
 
